@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildCore | Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class ="logo">
+            BUILDCORE
+            <span>CONSTRUCTION Solutions</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Who Are We?</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Solutions</a></li>
+                <li><a href="#">Industries</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Media</a></li>
+            </ul>
+            <button class="search-button" aria-label="Search">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                width="21"
+                height="21"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            </button>
+        </nav>
+        <button class="menu-toggle" 
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+    <!-- Mobile Navigation -->
+     <div class="mobile-menu" id="mobile-menu">
+        <button class="menu-close" aria-label="Close navigation menu">
+            &times;
+        </button>
+
+        <nav>
+            <ul>
+                <li><a href="#">Who Are We?</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Solutions</a></li>
+                <li><a href="#">Industries</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Media</a></li>
+            </ul>
+        </nav>
+     </div>
+    <main>
+        <section class="hero">
+
+            <!-- Slide 1: Company Introduction -->
+             <div class="hero-slide active">
+
+                <div class ="hero-content">
+                    <h1>Building Strength. Engineering Trust.</h1>
+
+                    <p>
+                       Advanced construction chemical solutions
+                       for stronger, more durable and reliable structures.
+                    </p>
+                    <a href="#" class="btn-primary">Explore Our Solutions</a>
+                </div>
+                <div class="hero-image">
+                    <!-- Slide 1 image -->
+                </div>
+
+             </div>
+
+             <!-- Slide 2: Who We Are -->
+              <div class="hero-slide">
+
+                <div class ="hero-content">
+                    <h1>Engineering Solutions That Build Confidence.</h1>
+
+                    <p>
+                        Discover BuildCore and our approach to delivering
+                        innovative solutions for the construction industry.
+                    </p>
+                    <a href="#" class="btn-primary">Why BuildCore?</a>
+                </div>
+                <div class="hero-image">
+                    <!-- Slide 2 image -->
+                </div>
+                </div>
+
+                <!-- Slide 3: Projects -->
+                 <div class="hero-slide">
+                    <div class ="hero-content">
+                        <h1>Solutions in Action.</h1>
+
+                        <p>
+                            Explore construction applications and project
+                            concepts showcasing our range of solutions.
+                        </p>
+                        <a href="#" class="btn-primary">Explore Projects</a>
+                 </div>
+
+                 <div class="hero-image">
+                    <!-- Slide 3 image -->
+                    </div>
+                </div>
+                
+                <!-- Carousel Controls -->
+                 <div class="hero-controls">
+                    <button class="hero-arrow prev" aria-label="Previous slide">
+                        &#8592;
+                    </button>
+
+                    <div class="hero-indicators">
+                        <button class="active" aria-label="Slide 1"></button>
+                        <button aria-label="Slide 2"></button>
+                        <button aria-label="Slide 3"></button>
+                    </div>
+                    <button class="hero-arrow next" aria-label="Next slide">
+                        &#8594;
+                    </button>
+                 </div>
+
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
