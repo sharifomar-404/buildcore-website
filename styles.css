@@ -275,8 +275,9 @@ nav a {
 }
 
 /* Mobile menu button */
+/* Hamburger button */
 .menu-toggle {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-between;
     width: 30px;
@@ -284,6 +285,7 @@ nav a {
     background: transparent;
     border: none;
     padding: 0;
+    cursor: pointer;
 }
 
 .menu-toggle span {
@@ -334,20 +336,106 @@ nav a {
 }
 
 /* Close button */
-
 .menu-close {
     position: absolute;
     top: 20px;
     right: 25px;
-    background: none;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
     border: none;
     color: white;
     font-size: 36px;
+    line-height: 1;
     cursor: pointer;
+    z-index: 1001;
 }
 
+/* Mobile responsive settings */
 @media (max-width: 767px) {
+
+    header {
+        padding: 16px 20px;
+    }
+
+    header nav {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
     .mobile-menu {
         display: block;
     }
+
+}
+
+
+/* Mobile responsive settings */
+@media (max-width: 767px) {
+
+    header {
+        padding: 16px 20px;
+    }
+
+    header nav {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+
+}
+
+/* Mobile responsive settings */
+@media (max-width: 767px) {
+
+    header {
+        padding: 16px 20px;
+    }
+
+    header nav {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+
+}
+
+
+/* Background overlay */
+.menu-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.45);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+}
+
+
+/* Prevent background scrolling */
+body.menu-open {
+    overflow: hidden;
 }
