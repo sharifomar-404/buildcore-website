@@ -146,5 +146,14 @@ const mobileLinks = document.querySelectorAll(".mobile-menu a");
 mobileLinks.forEach(link => {
 
     link.addEventListener("click", closeMenu);
+    // Close menu when Escape key is pressed
+document.addEventListener("keydown", (event) => {
+
+    if (event.key === "Escape" && mobileMenu.classList.contains("active")) {
+        closeMenu();
+    }
 
 });
+
+});
+
