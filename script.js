@@ -146,6 +146,7 @@ const mobileLinks = document.querySelectorAll(".mobile-menu a");
 mobileLinks.forEach(link => {
 
     link.addEventListener("click", closeMenu);
+
     // Close menu when Escape key is pressed
 document.addEventListener("keydown", (event) => {
 
@@ -157,3 +158,52 @@ document.addEventListener("keydown", (event) => {
 
 });
 
+// ===================================
+// LANGUAGE SWITCHER
+// ===================================
+
+// Select all language buttons
+const languageButtons = document.querySelectorAll(".language-btn");
+
+// Function to change website language
+function changeLanguage(language) {
+
+    // Update HTML language
+    document.documentElement.lang = language;
+
+    // Change text direction
+    document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+
+    // Update active button on desktop and mobile
+    languageButtons.forEach(button => {
+
+        const isActive = button.dataset.lang === language;
+
+        button.classList.toggle("active", isActive);
+
+        button.setAttribute("aria-pressed", isActive);
+
+    });
+
+    // Remember visitor's language
+    localStorage.setItem("selectedLanguage", language);
+
+}
+
+// Language button click events
+languageButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const selectedLanguage = button.dataset.lang;
+
+        changeLanguage(selectedLanguage);
+
+    });
+
+});
+
+// Load previously selected language
+const savedLanguage = localStorage.getItem("selectedLanguage") || "en";
+
+changeLanguage(savedLanguage);
