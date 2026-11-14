@@ -1,10 +1,18 @@
-/* Basic page setup */
+
+/* ===================================
+   BASIC PAGE SETUP
+=================================== */
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
 }
 
-/*Website header  */
+
+/* ===================================
+   WEBSITE HEADER
+=================================== */
+
 header {
     background-color: #183D32;
     padding: 20px 40px;
@@ -12,9 +20,16 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    position: sticky;
+    top: 0;
+    z-index: 900;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+    transition: box-shadow 0.3s ease;
 }
 
-/* Company logo test */
+/* Company logo */
 .logo {
     color: #C08B52;
     font-size: 24px;
@@ -30,7 +45,7 @@ header {
     margin-top: 4px;
 }
 
-/*Navigation menu */
+/* Navigation menu */
 nav {
     display: flex;
     align-items: center;
@@ -53,6 +68,7 @@ nav a {
     font-size: 14px;
 }
 
+/* Search button */
 .search-button {
     background: none;
     border: none;
@@ -62,7 +78,11 @@ nav a {
     align-items: center;
 }
 
-/* Hero section */
+
+/* ===================================
+   HERO SECTION
+=================================== */
+
 .hero {
     display: grid;
     position: relative;
@@ -77,13 +97,16 @@ nav a {
     grid-template-columns: 1fr 1fr;
     min-height: 500px;
     grid-area: 1 / 1;
+
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: opacity 0.7s ease-in-out, visibility 0.7s ease-in-out;
+
+    transition: opacity 0.7s ease-in-out,
+                visibility 0.7s ease-in-out;
 }
 
-/* Show the active slide */
+/* Active slide */
 .hero-slide.active {
     opacity: 1;
     visibility: visible;
@@ -93,79 +116,163 @@ nav a {
 /* Hero text area */
 .hero-content {
     padding: 80px 60px;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    opacity: 0;
+    transform: translateY(20px);
+
+    transition: opacity 0.9s ease-in-out,
+                transform 0.9s ease-in-out;
 }
 
+/* Hero heading */
 .hero-content h1 {
+    max-width: 520px;
     color: #183D32;
-    font-size: 42px;
+
+    font-size: 44px;
+    font-weight: 700;
     line-height: 1.2;
-    margin-bottom: 20px;
+    letter-spacing: -1px;
+
+    margin: 0 0 20px;
 }
 
+/* Hero description */
 .hero-content p {
+    max-width: 460px;
     color: #718078;
+
     font-size: 16px;
-    line-height: 1.7;
-    margin-bottom: 30px;
+    line-height: 1.8;
+
+    margin: 0 0 30px;
+}
+
+/* Animate active slide text */
+.hero-slide.active .hero-content {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.5s;
 }
 
 /* Hero image area */
 .hero-image {
     background-color: #E8DDC8;
-    min-height: 800px;
+    min-height: 500px;
+    height: 100%;
+
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    opacity: 0;
+    transition: opacity 0.9s ease-in-out;
 }
 
-/* Carousel controls */
+/* Animate active slide image */
+.hero-slide.active .hero-image {
+    opacity: 1;
+}
+
+
+/* ===================================
+   CAROUSEL CONTROLS — SIDE ARROWS
+=================================== */
+
 .hero-controls {
     position: absolute;
-    bottom: 25px;
-    left: 50%;
-    transform: translateX(-50%);
-
-    display: flex;
-    align-items: center;
-    gap: 20px;
+    inset: 0;
+    z-index: 10;
+    pointer-events: none;
 }
 
 /* Previous and next arrows */
 .hero-arrow {
-    width: 40px;
-    height: 40px;
-    border: 1px solid #183D32;
-    border-radius: 50%;
-    background: transparent;
-    color: #183D32;
+    position: absolute;
+    top: 50%;
 
-    font-size: 20px;
+    width: 44px;
+    height: 44px;
+
+    border: 2px solid #183D32;
+    border-radius: 50%;
+
+    background-color: #183D32;
+    color: #FFFFFF;
+
+    font-size: 22px;
+    font-weight: 600;
     cursor: pointer;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    transition: 0.3s;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+
+    pointer-events: auto;
+    transition: all 0.3s ease;
 }
 
-.hero-arrow:hover {
-    background-color: #183D32;
-    color: white;
+/* Previous arrow — left side */
+.hero-arrow.prev {
+    left: 10px;
+    transform: translateY(-50%);
 }
 
-/* Slide indicators */
-.slide-indicators {
+/* Next arrow — right side */
+.hero-arrow.next {
+    right: 10px;
+    transform: translateY(-50%);
+}
+
+/* Arrow hover effects */
+.hero-arrow.prev:hover,
+.hero-arrow.next:hover {
+    background-color: #C08B52;
+    border-color: #C08B52;
+    color: #183D32;
+    transform: translateY(-50%) scale(1.08);
+}
+
+/* Arabic arrow orientation */
+html[dir="rtl"] .hero-arrow {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+html[dir="rtl"] .hero-arrow.prev:hover,
+html[dir="rtl"] .hero-arrow.next:hover {
+    transform: translateY(-50%) rotate(180deg) scale(1.08);
+}
+
+
+/* ===================================
+   HERO SLIDE INDICATORS — BELOW HERO
+=================================== */
+
+.hero-indicators {
+    position: relative;
+
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
+
+    padding: 18px 0;
+    background-color: #F7F6F1;
 }
 
 .hero-indicators button {
     width: 9px;
     height: 9px;
+
     border: none;
     border-radius: 50%;
+
     background-color: #B8C0BA;
     cursor: pointer;
     padding: 0;
@@ -177,10 +284,15 @@ nav a {
     border-radius: 10px;
 }
 
-/* Primary hero button */
+
+/* ===================================
+   PRIMARY HERO BUTTON
+=================================== */
+
 .btn-primary {
     display: inline-block;
     width: fit-content;
+
     padding: 14px 28px;
 
     background-color: #183D32;
@@ -194,94 +306,25 @@ nav a {
     transition: 0.3s;
 }
 
-/* Button hover effect */
 .btn-primary:hover {
     background-color: #C08B52;
     color: #183D32;
     transform: translateY(-3px);
 }
 
-/* Hero heading */
-.hero-content h1 {
-    max-width: 520px;
-    font-size: 44px;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -1px;
-    margin: 0 0 20px;
-}
 
-/* Hero description */
-.hero-content p {
-    max-width: 460px;
-    font-size: 16px;
-    line-height: 1.8;
-    margin: 0 0 30px;
-}
+/* ===================================
+   HAMBURGER MENU
+=================================== */
 
-/* Hero text animation */
-.hero-content {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.9s ease-in-out, 
-    transform 0.9s ease-in-out;
-}
-
-.hero-slide.active .hero-content {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 0.5s;
-}
-
-/* Hero image animation */
-.hero-image {
-    opacity: 0;
-    transition: opacity 0.9s ease-in-out;
-}
-
-.hero-slide.active .hero-image {
-    opacity: 1;
-}
-
-/* Mobile resonsive hero */
-@media (max-width: 767px) {
-    .hero {
-        grid-template-columns: 1fr;
-        min-height: auto;
-    }
-
-    .hero-content {
-        padding: 60px 25px 40px;
-    }
-    .hero-content h1 {
-        font-size: 32px;
-    }
-
-    .hero-image {
-        min-height: 280px;
-    }
-}
-
-@media (max-width: 767px) {
-    header {
-        padding: 16px 20px;
-    }
-    header nav {
-        display: none;
-    }
-    .menu-toggle {
-        display: flex;
-    }
-}
-
-/* Mobile menu button */
-/* Hamburger button */
 .menu-toggle {
     display: none;
     flex-direction: column;
     justify-content: space-between;
+
     width: 30px;
     height: 24px;
+
     background: transparent;
     border: none;
     padding: 0;
@@ -295,18 +338,27 @@ nav a {
     background-color: #ffffff;
 }
 
-/* Mobile navigation drawer */
+
+/* ===================================
+   MOBILE NAVIGATION DRAWER
+=================================== */
+
 .mobile-menu {
     display: none;
+
     position: fixed;
     top: 0;
     right: 0;
+
     width: 80%;
     max-width: 350px;
     height: 100vh;
+
     background-color: #183D32;
+
     padding: 80px 30px 30px;
     box-sizing: border-box;
+
     z-index: 1000;
 
     transform: translateX(100%);
@@ -318,7 +370,6 @@ nav a {
 }
 
 /* Mobile menu links */
-
 .mobile-menu ul {
     list-style: none;
     padding: 0;
@@ -340,92 +391,36 @@ nav a {
     position: absolute;
     top: 20px;
     right: 25px;
+
     width: 40px;
     height: 40px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     background: transparent;
     border: none;
     color: white;
+
     font-size: 36px;
     line-height: 1;
+
     cursor: pointer;
     z-index: 1001;
 }
 
-/* Mobile responsive settings */
-@media (max-width: 767px) {
-
-    header {
-        padding: 16px 20px;
-    }
-
-    header nav {
-        display: none;
-    }
-
-    .menu-toggle {
-        display: flex;
-    }
-
-    .mobile-menu {
-        display: block;
-    }
-
-}
-
-
-/* Mobile responsive settings */
-@media (max-width: 767px) {
-
-    header {
-        padding: 16px 20px;
-    }
-
-    header nav {
-        display: none;
-    }
-
-    .menu-toggle {
-        display: flex;
-    }
-
-    .mobile-menu {
-        display: block;
-    }
-
-}
-
-/* Mobile responsive settings */
-@media (max-width: 767px) {
-
-    header {
-        padding: 16px 20px;
-    }
-
-    header nav {
-        display: none;
-    }
-
-    .menu-toggle {
-        display: flex;
-    }
-
-    .mobile-menu {
-        display: block;
-    }
-
-}
-
-
 /* Background overlay */
 .menu-overlay {
     display: none;
+
     position: fixed;
     inset: 0;
+
     background-color: rgba(0, 0, 0, 0.45);
+
     z-index: 999;
+
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
 }
@@ -434,13 +429,117 @@ nav a {
     opacity: 1;
 }
 
-
 /* Prevent background scrolling */
 body.menu-open {
     overflow: hidden;
 }
 
-/* Language switcher */
+
+/* ===================================
+   LANGUAGE SWITCHER
+=================================== */
+
+.language-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.language-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 4px;
+
+    padding: 7px 10px;
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.language-dropdown-toggle:hover {
+    background-color: #C08B52;
+    border-color: #C08B52;
+}
+
+.current-language-flag {
+    display: block;
+    width: 24px;
+    height: 16px;
+    object-fit: cover;
+}
+
+.dropdown-arrow {
+    color: white;
+    font-size: 16px;
+    line-height: 1;
+}
+
+/* Dropdown list */
+.language-dropdown-menu {
+    display: none;
+
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+
+    min-width: 155px;
+
+    background-color: white;
+    border-radius: 5px;
+    padding: 6px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1100;
+}
+
+.language-dropdown-menu.active {
+    display: block;
+}
+
+/* Dropdown options */
+.language-dropdown-menu .language-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    width: 100%;
+    padding: 10px;
+
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+
+    color: #252B28;
+    font-size: 14px;
+    text-align: left;
+
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.language-dropdown-menu .language-btn img {
+    display: block;
+    width: 24px;
+    height: 16px;
+    object-fit: cover;
+}
+
+.language-dropdown-menu .language-btn:hover,
+.language-dropdown-menu .language-btn.active {
+    background-color: #E8DDC8;
+    color: #183D32;
+}
+
+
+/* ===================================
+   MOBILE LANGUAGE SWITCHER
+=================================== */
+
 .language-switcher {
     display: flex;
     align-items: center;
@@ -451,31 +550,1050 @@ body.menu-open {
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.4);
     color: white;
-    padding: 7px 10px;
+
+    padding: 8px;
     border-radius: 4px;
-    font-size: 12px;
+
+    font-size: 14px;
     cursor: pointer;
+
     transition: 0.3s ease;
 }
 
-.language-btn:hover,
-.language-btn.active {
+.mobile-language-switcher {
+    margin-top: 35px;
+
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+}
+
+.mobile-language-switcher .language-btn {
+    width: auto;
+    padding: 8px;
+    text-align: center;
+}
+
+.mobile-language-switcher .language-btn img {
+    display: block;
+    width: 24px;
+    height: 16px;
+    object-fit: cover;
+}
+
+.mobile-language-switcher .language-btn:hover,
+.mobile-language-switcher .language-btn.active {
     background-color: #C08B52;
     border-color: #C08B52;
     color: #183D32;
 }
 
-/* Mobile language switcher */
-.mobile-language-switcher {
-    margin-top: 35px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
+/* Prevent incorrect flag from flashing */
+html.language-loading .language-dropdown-toggle {
+    visibility: hidden;
 }
 
-.mobile-language-switcher .language-btn {
-    font-size: 16px;
-    padding: 10px 15px;
+
+/* ===================================
+   HEADER SCROLL EFFECT
+=================================== */
+
+header.scrolled {
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.22);
+}
+
+
+/* ===================================
+   NAVIGATION HOVER EFFECT
+=================================== */
+
+header nav a {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+header nav a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 2px;
+
+    background-color: #C08B52;
+    transition: width 0.3s ease;
+}
+
+header nav a:hover {
+    color: #E8DDC8;
+}
+
+header nav a:hover::after {
     width: 100%;
-    text-align: left;
+}
+
+
+/* ===================================
+   EXPANDABLE HEADER SEARCH
+=================================== */
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+
+    border: 1px solid transparent;
+    border-radius: 4px;
+
+    transition: border-color 0.3s ease;
+}
+
+.search-input {
+    width: 0;
+    padding: 0;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+    color: white;
+
+    font-size: 14px;
+    opacity: 0;
+
+    transition: width 0.35s ease,
+                opacity 0.25s ease,
+                padding 0.35s ease;
+}
+
+.search-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search-button {
+    flex-shrink: 0;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.search-form.active {
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.search-form.active .search-input {
+    width: 180px;
+    padding: 8px 12px;
+    opacity: 1;
+}
+
+
+/* ===================================
+   MOBILE RESPONSIVE SETTINGS
+=================================== */
+
+@media (max-width: 767px) {
+
+    /* Header */
+    header {
+        padding: 16px 20px;
+    }
+
+    header nav {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+
+    /* Hero section */
+    .hero {
+        grid-template-columns: 1fr;
+        min-height: calc(100svh - 76px);
+    }
+
+    .hero-slide {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 320px;
+
+        min-height: calc(100svh - 76px);
+    }
+
+    /* Hero text */
+    .hero-content {
+        padding: 80px 60px 80px 85px;
+    }
+
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+    .hero-content p {
+        font-size: 15px;
+        margin-bottom: 24px;
+    }
+
+    /* Hero image height */
+    .hero-image {
+        min-height: 280px;
+    }
+}
+
+
+/* ===================================
+   MOBILE HERO IMAGE ZOOM
+=================================== */
+
+@media (max-width: 767px) {
+    .hero-image {
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+}
+
+
+/* ===================================
+   DESKTOP HERO IMAGE SIZING
+=================================== */
+
+@media (min-width: 768px) {
+
+    .hero {
+        min-height: 0;
+    }
+
+    .hero-slide {
+        min-height: 0;
+        align-items: stretch;
+    }
+
+    .hero-image {
+        min-height: 0;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: transparent;
+    }
+}
+
+
+/* ===================================
+   ARABIC RTL HEADER ALIGNMENT
+=================================== */
+
+/* Desktop header */
+html[dir="rtl"] header {
+    direction: rtl;
+}
+
+/* Desktop navigation */
+html[dir="rtl"] header nav {
+    direction: rtl;
+}
+
+html[dir="rtl"] header nav ul {
+    direction: rtl;
+}
+
+html[dir="rtl"] header nav a {
+    text-align: right;
+}
+
+/* Search */
+html[dir="rtl"] .search-container,
+html[dir="rtl"] .search-form {
+    direction: rtl;
+}
+
+html[dir="rtl"] .search-input {
+    text-align: right;
+}
+
+/* Language dropdown */
+html[dir="rtl"] .language-dropdown-menu {
+    right: auto;
+    left: 0;
+}
+
+html[dir="rtl"] .language-dropdown-menu .language-btn {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Mobile navigation */
+@media (max-width: 767px) {
+
+    html[dir="rtl"] .mobile-menu {
+        right: auto;
+        left: 0;
+        direction: rtl;
+        transform: translateX(-100%);
+    }
+
+    html[dir="rtl"] .mobile-menu.active {
+        transform: translateX(0);
+    }
+
+    html[dir="rtl"] .mobile-menu ul {
+        direction: rtl;
+        text-align: right;
+    }
+
+    html[dir="rtl"] .menu-close {
+        right: auto;
+        left: 25px;
+    }
+
+    html[dir="rtl"] .mobile-language-switcher {
+        direction: rtl;
+    }
+}
+
+
+/* ===================================
+   MOBILE HEADER SEARCH BESIDE HAMBURGER
+=================================== */
+
+@media (max-width: 767px) {
+
+    header nav {
+        display: flex;
+        align-items: center;
+        width: auto;
+        gap: 0;
+        margin-left: auto;
+    }
+
+    header nav ul {
+        display: none;
+    }
+
+    header nav .search-container {
+        display: flex;
+        align-items: center;
+        margin-right: 12px;
+    }
+
+    header nav .search-input {
+        max-width: 140px;
+    }
+
+    .menu-toggle {
+        flex-shrink: 0;
+        margin-left: 0;
+    }
+
+    html[dir="rtl"] header nav {
+        margin-left: 0;
+        margin-right: auto;
+    }
+
+    html[dir="rtl"] header nav .search-container {
+        margin-right: 0;
+        margin-left: 12px;
+    }
+}
+
+
+/* ===================================
+   MOBILE HEADER REFINEMENT
+=================================== */
+
+@media (max-width: 767px) {
+
+    header {
+        gap: 16px;
+    }
+
+    header nav {
+        display: flex;
+        align-items: center;
+        gap: 0;
+        margin-left: auto;
+    }
+
+    header nav ul {
+        display: none;
+    }
+
+    header nav .search-container {
+        display: flex;
+        align-items: center;
+        margin-right: 16px;
+    }
+
+    header nav .search-form {
+        border: none;
+    }
+
+    header nav .search-button {
+        border: none;
+        background: transparent;
+        padding: 8px;
+    }
+
+    header > .language-dropdown {
+        margin-left: 4px;
+        margin-right: 4px;
+    }
+
+    .menu-toggle {
+        flex-shrink: 0;
+        margin-left: 0;
+    }
+
+    html[dir="rtl"] header nav {
+        margin-left: 0;
+        margin-right: auto;
+    }
+
+    html[dir="rtl"] header nav .search-container {
+        margin-right: 0;
+        margin-left: 16px;
+    }
+}
+
+
+/* ===================================
+   MOBILE HEADER FINAL FIXES
+=================================== */
+
+@media (max-width: 767px) {
+
+    .mobile-menu .language-dropdown,
+    .mobile-menu .mobile-language-switcher {
+        display: none !important;
+    }
+
+    header nav .search-container {
+        min-width: 0;
+        max-width: calc(100vw - 150px);
+    }
+
+    header nav .search-form {
+        box-sizing: border-box;
+        max-width: 100%;
+    }
+
+    header nav .search-form.active {
+        max-width: calc(100vw - 150px);
+        overflow: hidden;
+    }
+
+    header nav .search-form.active .search-input {
+        box-sizing: border-box;
+        width: clamp(70px, 25vw, 120px);
+        min-width: 0;
+    }
+
+    html[dir="rtl"] header nav .search-form {
+        direction: rtl;
+    }
+}
+
+
+/* ===================================
+   MOBILE HEADER FINAL FIXES
+=================================== */
+
+@media (max-width: 767px) {
+
+    header {
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: clip;
+    }
+
+    .mobile-menu .mobile-language-dropdown,
+    .mobile-menu .language-dropdown,
+    .mobile-menu .mobile-language-switcher {
+        display: none !important;
+    }
+
+    header nav {
+        flex: 0 1 auto;
+        min-width: 0;
+    }
+
+    header nav .search-container {
+        flex: 0 1 auto;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    header nav .search-form {
+        width: 38px;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    header nav .search-form.active {
+        width: 130px;
+        max-width: calc(100vw - 220px);
+        overflow: hidden;
+    }
+
+    header nav .search-form .search-input {
+        flex: 1 1 auto;
+        width: 0;
+        min-width: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    header nav .search-form.active .search-input {
+        width: auto;
+        min-width: 0;
+    }
+
+    header nav .search-button {
+        flex: 0 0 auto;
+    }
+
+    html[dir="rtl"] header nav .search-form {
+        direction: rtl;
+    }
+}
+
+
+/* ===================================
+   DESKTOP HERO — FILL AVAILABLE SCREEN
+=================================== */
+
+@media (min-width: 768px) {
+
+    .hero {
+        min-height: calc(100svh - 90px);
+    }
+
+    .hero-slide {
+        min-height: calc(100svh - 90px);
+        height: 100%;
+        align-items: stretch;
+    }
+
+    .hero-image {
+        aspect-ratio: auto;
+        height: 100%;
+        min-height: 0;
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+
+/* ===================================
+   MOBILE HAMBURGER — VERTICAL MENU
+=================================== */
+
+@media (max-width: 767px) {
+
+    .mobile-menu nav {
+        display: block;
+        width: 100%;
+    }
+
+    .mobile-menu nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        width: 100%;
+    }
+
+    .mobile-menu nav li {
+        display: block;
+        width: 100%;
+        margin-bottom: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .mobile-menu nav a {
+        display: block;
+        width: 100%;
+        padding: 16px 0;
+        box-sizing: border-box;
+        text-align: left;
+    }
+
+    html[dir="rtl"] .mobile-menu nav a {
+        text-align: right;
+    }
+}
+
+
+/* ===================================
+   MOBILE MENU — GOLD HOVER EFFECT
+=================================== */
+
+@media (max-width: 767px) {
+
+    .mobile-menu nav a {
+        cursor: pointer;
+        transition: color 0.3s ease, padding-left 0.3s ease;
+    }
+
+    .mobile-menu nav a:hover {
+        color: #C08B52;
+        padding-left: 8px;
+    }
+
+    html[dir="rtl"] .mobile-menu nav a:hover {
+        padding-left: 0;
+        padding-right: 8px;
+    }
+}
+
+
+/* ===================================
+   SEGMENT 3 — ABOUT BUILDCORE
+=================================== */
+
+.about-section {
+    padding: 100px 7%;
+    background-color: #F7F6F1;
+    overflow: hidden;
+}
+
+/* Section heading */
+.about-heading {
+    max-width: 760px;
+    margin: 0 auto 65px;
+    text-align: center;
+}
+
+.about-kicker,
+.about-subheading {
+    display: inline-block;
+    color: #C08B52;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+}
+
+.about-heading h2 {
+    color: #183D32;
+    font-size: 38px;
+    line-height: 1.25;
+    margin: 0;
+}
+
+/* Image and content layout */
+.about-layout {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* ===================================
+   ABOUT IMAGE
+=================================== */
+
+.about-image-wrap {
+    position: relative;
+}
+
+.about-image {
+    display: block;
+    object-position: center center;
+    width: 100%;
+    height: 470px;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+}
+
+/* Top-left gold corner — attached to image */
+.about-image-accent {
+    position: absolute;
+    top: -16px;
+    left: -16px;
+    width: 150px;
+    height: 150px;
+    border-top: 4px solid #C08B52;
+    border-left: 4px solid #C08B52;
+    z-index: 2;
+    pointer-events: none;
+}
+
+
+/* ===================================
+   ABOUT CONTENT
+=================================== */
+
+.about-content {
+    position: relative;
+    z-index: 3;
+    background-color: white;
+    padding: 50px 45px;
+    margin-left: -65px;
+    box-shadow: 0 12px 35px rgba(24, 61, 50, 0.09);
+}
+
+/* Bottom-right gold corner — attached to white content box */
+.about-image-accent-bottom {
+    position: absolute;
+    bottom: -16px;
+    right: -16px;
+    width: 150px;
+    height: 150px;
+    border-right: 4px solid #C08B52;
+    border-bottom: 4px solid #C08B52;
+    z-index: 4;
+    pointer-events: none;
+}
+
+.about-content h3 {
+    color: #183D32;
+    font-size: 29px;
+    line-height: 1.35;
+    margin: 0 0 22px;
+}
+
+.about-content p {
+    color: #718078;
+    font-size: 15px;
+    line-height: 1.9;
+    margin: 0 0 16px;
+}
+
+/* ===================================
+   ABOUT LINK
+=================================== */
+
+.about-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+    padding: 14px 22px;
+    background-color: #183D32;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.3s ease,
+                transform 0.3s ease;
+}
+
+.about-link span {
+    color: white;
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+.about-link:hover {
+    background-color: #C08B52;
+    color: white;
+}
+
+.about-link:hover span {
+    transform: translateX(5px);
+}
+
+/* ===================================
+   COMPANY STRENGTHS
+=================================== */
+
+.about-strengths {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 85px auto 0;
+}
+
+.about-strength {
+    padding: 28px 25px;
+    border-top: 3px solid #C08B52;
+    background-color: white;
+    transition: background-color 0.3s ease,
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.about-strength:hover {
+    background-color: #183D32;
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(24, 61, 50, 0.18);
+}
+
+.strength-number {
+    display: block;
+    color: #C08B52;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+.about-strength h4 {
+    color: #183D32;
+    font-size: 19px;
+    margin: 0 0 12px;
+    transition: color 0.3s ease;
+}
+
+.about-strength p {
+    color: #718078;
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+/* Hover text colors */
+.about-strength:hover h4,
+.about-strength:hover p {
+    color: white;
+}
+
+
+/* ===================================
+   ABOUT — ARABIC RTL
+=================================== */
+
+html[dir="rtl"] .about-section {
+    direction: rtl;
+    text-align: right;
+}
+
+html[dir="rtl"] .about-content {
+    margin-left: 0;
+    margin-right: -65px;
+}
+
+/* Mirror top corner on image */
+html[dir="rtl"] .about-image-accent {
+    left: auto;
+    right: -16px;
+    border-left: none;
+    border-right: 4px solid #C08B52;
+}
+
+/* Mirror bottom corner on white content box */
+html[dir="rtl"] .about-image-accent-bottom {
+    right: auto;
+    left: -16px;
+    border-right: none;
+    border-left: 4px solid #C08B52;
+}
+
+html[dir="rtl"] .about-link {
+    flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .about-link:hover span {
+    transform: translateX(-5px);
+}
+
+
+/* ===================================
+   ABOUT — TABLET
+=================================== */
+
+@media (max-width: 1024px) {
+
+    .about-section {
+        padding: 80px 5%;
+    }
+
+    .about-content {
+        padding: 35px 30px;
+        margin-left: -40px;
+    }
+
+    html[dir="rtl"] .about-content {
+        margin-left: 0;
+        margin-right: -40px;
+    }
+
+    .about-content h3 {
+        font-size: 25px;
+    }
+
+    .about-strengths {
+        gap: 18px;
+    }
+}
+
+
+/* ===================================
+   ABOUT — MOBILE
+=================================== */
+
+@media (max-width: 767px) {
+
+    .about-section {
+        padding: 65px 22px;
+    }
+
+    .about-heading {
+        margin-bottom: 40px;
+    }
+
+    .about-heading h2 {
+        font-size: 30px;
+    }
+
+    .about-layout {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .about-image-wrap {
+        min-height: 300px;
+    }
+
+    .about-image {
+        height: 300px;
+    }
+
+    /* Smaller top-left gold corner on image */
+    .about-image-accent {
+        width: 90px;
+        height: 90px;
+        top: -10px;
+        left: -10px;
+    }
+
+    /* Smaller bottom-right gold corner on content box */
+    .about-image-accent-bottom {
+        width: 90px;
+        height: 90px;
+        bottom: -10px;
+        right: -10px;
+    }
+
+    .about-content {
+        margin: -25px 12px 0;
+        padding: 30px 24px;
+    }
+
+    .about-content h3 {
+        font-size: 24px;
+    }
+
+    .about-content p {
+        font-size: 14px;
+    }
+
+    .about-strengths {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-top: 45px;
+    }
+
+    .about-strength {
+        padding: 24px 22px;
+    }
+
+    html[dir="rtl"] .about-content {
+        margin: -25px 12px 0;
+    }
+
+    /* Mirror top corner on image */
+    html[dir="rtl"] .about-image-accent {
+        left: auto;
+        right: -10px;
+    }
+
+    /* Mirror bottom corner on content box */
+    html[dir="rtl"] .about-image-accent-bottom {
+        right: auto;
+        left: -10px;
+    }
+}
+
+
+/* ===================================
+   HERO CAROUSEL — MOBILE ARROWS
+=================================== */
+
+@media (max-width: 767px) {
+
+    .hero-arrow {
+        top: calc(100% - 160px);
+        width: 36px;
+        height: 36px;
+        font-size: 19px;
+    }
+
+    .hero-arrow.prev {
+        left: 10px;
+    }
+
+    .hero-arrow.next {
+        right: 10px;
+    }
+
+    html[dir="rtl"] .hero-arrow {
+        transform: translateY(-50%) rotate(180deg);
+    }
+
+    html[dir="rtl"] .hero-arrow.prev:hover,
+    html[dir="rtl"] .hero-arrow.next:hover {
+        transform: translateY(-50%) rotate(180deg) scale(1.08);
+    }
+}
+
+
+/* ===================================
+   HERO TEXT — FINAL POSITION
+=================================== */
+
+@media (min-width: 768px) {
+
+    .hero .hero-slide .hero-content {
+        padding-left: 110px !important;
+        padding-right: 60px !important;
+    }
+
+    html[dir="rtl"] .hero .hero-slide .hero-content {
+        padding-left: 60px !important;
+        padding-right: 110px !important;
+    }
+}
+
+
+/* ===================================
+   ABOUT — MATCH IMAGE HEIGHT TO CONTENT
+=================================== */
+
+@media (min-width: 768px) {
+
+    .about-layout {
+        align-items: stretch;
+    }
+
+    .about-image-wrap {
+        min-height: 0;
+        height: 100%;
+    }
+
+    .about-image {
+        height: 100%;
+        min-height: 100%;
+        object-fit: cover;
+    }
 }

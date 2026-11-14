@@ -1,172 +1,371 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>BuildCore | Solutions</title>
+
+    <!-- Load saved language before CSS renders -->
+    <script>
+        (function () {
+            const initialLanguage =
+                localStorage.getItem("selectedLanguage") || "en";
+
+            document.documentElement.lang = initialLanguage;
+
+            document.documentElement.dir =
+                initialLanguage === "ar" ? "rtl" : "ltr";
+        })();
+    </script>
+
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <header>
-        <div class ="logo">
+        <div class="logo">
             BUILDCORE
             <span>CONSTRUCTION Solutions</span>
         </div>
+
         <nav>
+            <!-- Desktop Navigation -->
             <ul>
-                <li><a href="#">Who Are We?</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">Solutions</a></li>
-                <li><a href="#">Industries</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Media</a></li>
+                <li><a href="#" data-en="Who Are We?" data-ar="من نحن؟">Who Are We?</a></li>
+                <li><a href="#" data-en="Products" data-ar="المنتجات">Products</a></li>
+                <li><a href="#" data-en="Solutions" data-ar="الحلول">Solutions</a></li>
+                <li><a href="#" data-en="Industries" data-ar="القطاعات">Industries</a></li>
+                <li><a href="#" data-en="Projects" data-ar="المشاريع">Projects</a></li>
+                <li><a href="#" data-en="Media" data-ar="المركز الإعلامي">Media</a></li>
             </ul>
 
-            <button class="search-button" aria-label="Search">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                width="21"
-                height="21"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round">
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-            </button>
-            
-            <!-- LANGUAGE SWITCHER START -->
-            <div class="language-switcher">
-    <button class="language-btn active" type="button"
-        data-lang="en" aria-pressed="true">
-        🇬🇧 EN
-    </button>
+            <!-- Search -->
+            <div class="search-container">
+                <form class="search-form" role="search">
+                    <input
+                        type="search"
+                        class="search-input"
+                        placeholder="Search..."
+                        aria-label="Search website"
+                    >
 
-    <button class="language-btn" type="button"
-        data-lang="ar" aria-pressed="false">
-        🇸🇦 AR
-    </button>
-</div>
+                    <button
+                        class="search-button"
+                        type="button"
+                        aria-label="Open search"
+                        aria-expanded="false"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            width="21"
+                            height="21"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Desktop Language Dropdown -->
+            <div class="language-dropdown">
+                <button class="language-dropdown-toggle" type="button"
+                    aria-label="Select language"
+                    aria-expanded="false">
+
+                    <img class="current-language-flag"
+                        src="https://flagcdn.com/gb.svg"
+                        alt="English">
+
+                    <span class="dropdown-arrow">⌄</span>
+                </button>
+
+                <div class="language-dropdown-menu">
+                    <button class="language-btn active" type="button"
+                        data-lang="en" aria-pressed="true">
+                        <img src="https://flagcdn.com/gb.svg" alt="">
+                        <span>English</span>
+                    </button>
+
+                    <button class="language-btn" type="button"
+                        data-lang="ar" aria-pressed="false">
+                        <img src="https://flagcdn.com/sa.svg" alt="">
+                        <span>العربية</span>
+                    </button>
+                </div>
+            </div>
         </nav>
-        <button class="menu-toggle" 
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-        aria-controls="mobile-menu">
+
+        <!-- Mobile Hamburger -->
+        <button class="menu-toggle"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu">
+
             <span></span>
             <span></span>
             <span></span>
         </button>
     </header>
+
     <!-- Mobile Navigation -->
-     <div class="menu-overlay"></div>
-     <div class="mobile-menu" id="mobile-menu">
+    <div class="menu-overlay"></div>
+
+    <div class="mobile-menu" id="mobile-menu">
         <button class="menu-close" aria-label="Close navigation menu">
             &times;
         </button>
 
         <nav>
             <ul>
-                <li><a href="#">Who Are We?</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">Solutions</a></li>
-                <li><a href="#">Industries</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Media</a></li>
+                <li><a href="#" data-en="Who Are We?" data-ar="من نحن؟">Who Are We?</a></li>
+                <li><a href="#" data-en="Products" data-ar="المنتجات">Products</a></li>
+                <li><a href="#" data-en="Solutions" data-ar="الحلول">Solutions</a></li>
+                <li><a href="#" data-en="Industries" data-ar="القطاعات">Industries</a></li>
+                <li><a href="#" data-en="Projects" data-ar="المشاريع">Projects</a></li>
+                <li><a href="#" data-en="Media" data-ar="المركز الإعلامي">Media</a></li>
             </ul>
         </nav>
-     </div>
-             </nav>
 
-        <!-- MOBILE LANGUAGE SWITCHER -->
-        <div class="language-switcher mobile-language-switcher">
-            <button class="language-btn active" type="button"
-                data-lang="en" aria-pressed="true">
-                🇬🇧 English
+        <!-- Mobile Language Dropdown -->
+        <div class="language-dropdown mobile-language-dropdown">
+            <button class="language-dropdown-toggle" type="button"
+                aria-label="Select language"
+                aria-expanded="false">
+
+                <img class="current-language-flag"
+                    src="https://flagcdn.com/gb.svg"
+                    alt="English">
+
+                <span class="dropdown-arrow">⌄</span>
             </button>
 
-            <button class="language-btn" type="button"
-                data-lang="ar" aria-pressed="false">
-                🇸🇦 العربية
-            </button>
+            <div class="language-dropdown-menu">
+                <button class="language-btn active" type="button"
+                    data-lang="en" aria-pressed="true">
+                    <img src="https://flagcdn.com/gb.svg" alt="">
+                    <span>English</span>
+                </button>
+
+                <button class="language-btn" type="button"
+                    data-lang="ar" aria-pressed="false">
+                    <img src="https://flagcdn.com/sa.svg" alt="">
+                    <span>العربية</span>
+                </button>
+            </div>
         </div>
-
-     </div>
+    </div>
 
     <main>
         <section class="hero">
 
             <!-- Slide 1: Company Introduction -->
-             <div class="hero-slide active">
-
-                <div class ="hero-content">
+            <div class="hero-slide active">
+                <div class="hero-content">
                     <h1>Building Strength. Engineering Trust.</h1>
 
                     <p>
-                       Advanced construction chemical solutions
-                       for stronger, more durable and reliable structures.
+                        Advanced construction chemical solutions
+                        for stronger, more durable and reliable structures.
                     </p>
+
                     <a href="#" class="btn-primary">Explore Our Solutions</a>
                 </div>
-                <div class="hero-image">
-                    <!-- Slide 1 image -->
+
+                <div class="hero-image hero-company-image"
+                    style="background-image: url('assets/images/Hero\ -\ 1.2.jpg');">
                 </div>
+            </div>
 
-             </div>
-
-             <!-- Slide 2: Who We Are -->
-              <div class="hero-slide">
-
-                <div class ="hero-content">
+            <!-- Slide 2: Who We Are -->
+            <div class="hero-slide">
+                <div class="hero-content">
                     <h1>Engineering Solutions That Build Confidence.</h1>
 
                     <p>
                         Discover BuildCore and our approach to delivering
                         innovative solutions for the construction industry.
                     </p>
+
                     <a href="#" class="btn-primary">Why BuildCore?</a>
                 </div>
-                <div class="hero-image">
-                    <!-- Slide 2 image -->
+
+                <div class="hero-image"
+                    style="background-image: url('assets/images/Hero\ -\ 2.jpg');">
                 </div>
+            </div>
+
+            <!-- Slide 3: Projects -->
+            <div class="hero-slide">
+                <div class="hero-content">
+                    <h1>Solutions in Action.</h1>
+
+                    <p>
+                        Explore construction applications and project
+                        concepts showcasing our range of solutions.
+                    </p>
+
+                    <a href="#" class="btn-primary">Explore Projects</a>
                 </div>
 
-                <!-- Slide 3: Projects -->
-                 <div class="hero-slide">
-                    <div class ="hero-content">
-                        <h1>Solutions in Action.</h1>
-
-                        <p>
-                            Explore construction applications and project
-                            concepts showcasing our range of solutions.
-                        </p>
-                        <a href="#" class="btn-primary">Explore Projects</a>
-                 </div>
-
-                 <div class="hero-image">
-                    <!-- Slide 3 image -->
-                    </div>
+                <div class="hero-image hero-projects-image"
+                    style="background-image: url('assets/images/Hero\ -\ 3.1.jpg');">
                 </div>
-                
-                <!-- Carousel Controls -->
-                 <div class="hero-controls">
-                    <button class="hero-arrow prev" aria-label="Previous slide">
-                        &#8592;
-                    </button>
+            </div>
 
-                    <div class="hero-indicators">
-                        <button class="active" aria-label="Slide 1"></button>
-                        <button aria-label="Slide 2"></button>
-                        <button aria-label="Slide 3"></button>
-                    </div>
-                    <button class="hero-arrow next" aria-label="Next slide">
-                        &#8594;
-                    </button>
-                 </div>
+            <!-- Carousel Controls -->
+<div class="hero-controls">
+
+    <button class="hero-arrow prev" aria-label="Previous slide">
+        &#8592;
+    </button>
+
+    <button class="hero-arrow next" aria-label="Next slide">
+        &#8594;
+    </button>
+
+</div>
+
+</section>
+
+<!-- Slide Indicators — outside the hero -->
+<div class="hero-indicators">
+    <button class="active" aria-label="Slide 1"></button>
+    <button aria-label="Slide 2"></button>
+    <button aria-label="Slide 3"></button>
+</div>
+
+        <!-- ===================================
+             ABOUT BUILDCORE
+        =================================== -->
+
+        <section class="about-section" id="about">
+
+            <div class="about-heading">
+                <span class="about-kicker"
+                    data-en="ABOUT BUILDCORE"
+                    data-ar="عن بيلد كور">
+                    ABOUT BUILDCORE
+                </span>
+
+                <h2
+                    data-en="Engineering Strength Into Every Structure."
+                    data-ar="هندسة القوة في كل منشأة.">
+                    Engineering Strength Into Every Structure.
+                </h2>
+            </div>
+
+            <div class="about-layout">
+
+                <!-- About Image -->
+                <div class="about-image-wrap">
+                    <img
+                        src="assets/images/About image.webp"
+                        alt="Construction engineering and building materials"
+                        class="about-image"
+                    >
+
+                    <!-- Top-left gold frame -->
+                    <div class="about-image-accent"></div>
+                </div>
+
+                <!-- About Content -->
+                <div class="about-content">
+
+                    <span class="about-subheading"
+                        data-en="OUR APPROACH"
+                        data-ar="نهجنا">
+                        OUR APPROACH
+                    </span>
+
+                    <h3
+                        data-en="Construction Chemical Solutions, Driven by Engineering."
+                        data-ar="حلول الكيماويات الإنشائية برؤية هندسية.">
+                        Construction Chemical Solutions, Driven by Engineering.
+                    </h3>
+
+                    <p
+                        data-en="BuildCore focuses on construction chemical solutions designed to support the strength, durability and performance of modern structures. We bring together technical understanding, quality-focused practices and a commitment to reliable results."
+                        data-ar="تركز بيلد كور على حلول الكيماويات الإنشائية المصممة لدعم قوة المنشآت الحديثة ومتانتها وأدائها. ونجمع بين الفهم التقني وممارسات الجودة والالتزام بتقديم نتائج موثوقة.">
+                        BuildCore focuses on construction chemical solutions designed to support the strength, durability and performance of modern structures. We bring together technical understanding, quality-focused practices and a commitment to reliable results.
+                    </p>
+
+                    <p
+                        data-en="Our approach is built around understanding construction requirements and providing solutions suited to the demands of each application."
+                        data-ar="يرتكز نهجنا على فهم متطلبات البناء وتقديم حلول تتناسب مع احتياجات كل تطبيق.">
+                        Our approach is built around understanding construction requirements and providing solutions suited to the demands of each application.
+                    </p>
+
+                    <a href="#"
+                        class="about-link"
+                        data-en="Discover Our Solutions"
+                        data-ar="اكتشف حلولنا">
+                        Discover Our Solutions
+                        <span aria-hidden="true">→</span>
+                    </a>
+
+                    <!-- Bottom-right gold frame: attached to the white box -->
+                    <div class="about-image-accent-bottom"></div>
+
+                </div>
+            </div>
+
+            <!-- Company Strengths -->
+            <div class="about-strengths">
+
+                <article class="about-strength">
+                    <span class="strength-number">01</span>
+                    <h4
+                        data-en="Technical Expertise"
+                        data-ar="الخبرة التقنية">
+                        Technical Expertise
+                    </h4>
+                    <p
+                        data-en="A technical approach to understanding construction materials, applications and requirements."
+                        data-ar="نهج تقني لفهم مواد البناء وتطبيقاتها ومتطلباتها.">
+                        A technical approach to understanding construction materials, applications and requirements.
+                    </p>
+                </article>
+
+                <article class="about-strength">
+                    <span class="strength-number">02</span>
+                    <h4
+                        data-en="Quality Commitment"
+                        data-ar="الالتزام بالجودة">
+                        Quality Commitment
+                    </h4>
+                    <p
+                        data-en="A focus on quality-conscious practices throughout the selection and application of solutions."
+                        data-ar="التركيز على ممارسات تراعي الجودة في اختيار الحلول وتطبيقها.">
+                        A focus on quality-conscious practices throughout the selection and application of solutions.
+                    </p>
+                </article>
+
+                <article class="about-strength">
+                    <span class="strength-number">03</span>
+                    <h4
+                        data-en="Reliable Performance"
+                        data-ar="الأداء الموثوق">
+                        Reliable Performance
+                    </h4>
+                    <p
+                        data-en="Solutions selected to support durability, consistency and dependable construction outcomes."
+                        data-ar="حلول مختارة لدعم المتانة والاتساق وتحقيق نتائج إنشائية يمكن الاعتماد عليها.">
+                        Solutions selected to support durability, consistency and dependable construction outcomes.
+                    </p>
+                </article>
+
+            </div>
 
         </section>
     </main>
+
     <script src="script.js"></script>
 </body>
 </html>
