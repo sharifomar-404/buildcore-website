@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Company Overview | BuildCore</title>
+
+    <link rel="stylesheet" href="privacy-policy.css">
+<link rel="stylesheet" href="overview.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="assets/icons/Logo 2.png"
+                     alt="BuildCore Construction Solutions">
+            </a>
+        </div>
+
+        <nav>
+            <!-- Desktop Navigation -->
+            <ul>
+                <li class="nav-dropdown">
+                    <a href="#" data-en="Who Are We" data-ar="من نحن">
+                        Who Are We
+                        <span class="nav-arrow">⌄</span>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="overview.html"
+                               data-en="Overview"
+                               data-ar="نظرة عامة">Overview</a>
+                        </li>
+
+                        <li>
+                            <a href="why-buildcore.html"
+                               data-en="Why BuildCore?"
+                               data-ar="لماذا بيلدكور؟">Why BuildCore?</a>
+                        </li>
+
+                        <li>
+                            <a href="index.html#clients-partners"
+                               data-en="Our Partners"
+                               data-ar="شركاؤنا">Our Partners</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="index.html#products"
+                       data-en="Products"
+                       data-ar="المنتجات">Products</a>
+                </li>
+
+                <li>
+                    <a href="index.html#products"
+                       data-en="Solutions"
+                       data-ar="الحلول">Solutions</a>
+                </li>
+
+                <li class="nav-dropdown">
+                    <a href="projects.html"
+                       data-en="Projects"
+                       data-ar="المشاريع">
+                        Projects
+                        <span class="nav-arrow">⌄</span>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="projects.html"
+                               data-en="Our Projects"
+                               data-ar="مشاريعنا">Our Projects</a>
+                        </li>
+
+                        <li>
+                            <a href="index.html#clients-partners"
+                               data-en="Clients"
+                               data-ar="عملاؤنا">Clients</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-dropdown">
+                    <a href="sustainability.html"
+                       data-en="Commitment"
+                       data-ar="التزامنا">
+                        Commitment
+                        <span class="nav-arrow">⌄</span>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="sustainability.html"
+                               data-en="Sustainability"
+                               data-ar="الاستدامة">Sustainability</a>
+                        </li>
+
+                        <li>
+                            <a href="vision-2030.html"
+                               data-en="Vision 2030"
+                               data-ar="رؤية 2030">Vision 2030</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="media.html"
+                       data-en="Media"
+                       data-ar="الإعلام">Media</a>
+                </li>
+            </ul>
+
+            <!-- Desktop Search -->
+            <div class="search-container">
+                <form class="search-form" role="search" id="searchForm">
+                    <input
+                        type="search"
+                        class="search-input"
+                        id="searchInput"
+                        placeholder="Search..."
+                        aria-label="Search website"
+                    >
+
+                    <button
+                        class="search-button"
+                        type="button"
+                        id="searchButton"
+                        aria-label="Open search"
+                        aria-expanded="false"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             width="21"
+                             height="21"
+                             viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="2"
+                             stroke-linecap="round"
+                             stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </button>
+                </form>
+
+                <!-- Only one search results container -->
+                <div class="search-results" id="searchResults"></div>
+            </div>
+
+            <!-- Desktop Language Dropdown -->
+            <div class="language-dropdown">
+                <button class="language-dropdown-toggle"
+                        type="button"
+                        aria-label="Select language"
+                        aria-expanded="false">
+
+                    <img class="current-language-flag"
+                         src="https://flagcdn.com/gb.svg"
+                         alt="English">
+
+                    <span class="dropdown-arrow">⌄</span>
+                </button>
+
+                <div class="language-dropdown-menu">
+                    <button class="language-btn active"
+                            type="button"
+                            data-lang="en"
+                            aria-pressed="true">
+                        <img src="https://flagcdn.com/gb.svg" alt="">
+                        <span>English</span>
+                    </button>
+
+                    <button class="language-btn"
+                            type="button"
+                            data-lang="ar"
+                            aria-pressed="false">
+                        <img src="https://flagcdn.com/sa.svg" alt="">
+                        <span>العربية</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Hamburger -->
+        <button class="menu-toggle"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="mobile-menu">
+
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="menu-overlay"></div>
+
+    <div class="mobile-menu" id="mobile-menu">
+
+        <button class="menu-close" aria-label="Close navigation menu">
+            &times;
+        </button>
+
+        <nav>
+            <ul>
+
+                <!-- Who Are We -->
+                <li class="mobile-nav-dropdown">
+                    <button class="mobile-dropdown-toggle"
+                            type="button"
+                            aria-expanded="false">
+                        <span data-en="Who Are We" data-ar="من نحن">Who Are We</span>
+                        <span class="mobile-dropdown-arrow">⌄</span>
+                    </button>
+
+                    <ul class="mobile-submenu">
+                        <li>
+                            <a href="overview.html"
+                               data-en="Overview"
+                               data-ar="نظرة عامة">Overview</a>
+                        </li>
+
+                        <li>
+                            <a href="why-buildcore.html"
+                               data-en="Why BuildCore?"
+                               data-ar="لماذا بيلدكور؟">Why BuildCore?</a>
+                        </li>
+
+                        <li>
+                            <a href="index.html#clients-partners"
+                               data-en="Our Partners"
+                               data-ar="شركاؤنا">Our Partners</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Products -->
+                <li>
+                    <a href="index.html#products"
+                       data-en="Products"
+                       data-ar="المنتجات">Products</a>
+                </li>
+
+                <!-- Solutions -->
+                <li>
+                    <a href="index.html#products"
+                       data-en="Solutions"
+                       data-ar="الحلول">Solutions</a>
+                </li>
+
+                <!-- Industries -->
+                <li>
+                    <a href="index.html#industries"
+                       data-en="Industries"
+                       data-ar="القطاعات">Industries</a>
+                </li>
+
+                <!-- Projects -->
+                <li class="mobile-nav-dropdown">
+                    <button class="mobile-dropdown-toggle"
+                            type="button"
+                            aria-expanded="false">
+                        <span data-en="Projects" data-ar="المشاريع">Projects</span>
+                        <span class="mobile-dropdown-arrow">⌄</span>
+                    </button>
+
+                    <ul class="mobile-submenu">
+                        <li>
+                            <a href="projects.html"
+                               data-en="Our Projects"
+                               data-ar="مشاريعنا">Our Projects</a>
+                        </li>
+
+                        <li>
+                            <a href="index.html#clients-partners"
+                               data-en="Clients"
+                               data-ar="عملاؤنا">Clients</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Commitment -->
+                <li class="mobile-nav-dropdown">
+                    <button class="mobile-dropdown-toggle"
+                            type="button"
+                            aria-expanded="false">
+                        <span data-en="Commitment" data-ar="التزامنا">Commitment</span>
+                        <span class="mobile-dropdown-arrow">⌄</span>
+                    </button>
+
+                    <ul class="mobile-submenu">
+                        <li>
+                            <a href="sustainability.html"
+                               data-en="Sustainability"
+                               data-ar="الاستدامة">Sustainability</a>
+                        </li>
+
+                        <li>
+                            <a href="vision-2030.html"
+                               data-en="Vision 2030"
+                               data-ar="رؤية 2030">Vision 2030</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Media -->
+                <li>
+                    <a href="media.html"
+                       data-en="Media"
+                       data-ar="المركز الإعلامي">Media</a>
+                </li>
+
+            </ul>
+        </nav>
+    </div>
+
+
+
+    <main>
+
+        <!-- 1. Company Introduction -->
+        
+
+<section id="company-intro">
+
+    <div class="intro-container">
+
+        <div class="intro-image">
+            <img src="assets/images/about.1.jpg"
+                 alt="BuildCore construction solutions">
+        </div>
+
+        <div class="intro-content">
+
+            <span class="section-label"
+                  data-en="ABOUT BUILDCORE"
+                  data-ar="من نحن">
+                ABOUT BUILDCORE
+            </span>
+
+            <h1
+                data-en="Building Strength. Creating Confidence."
+                data-ar="نبني القوة ونصنع الثقة">
+                Building Strength. Creating Confidence.
+            </h1>
+
+            <p
+                data-en="BuildCore is committed to delivering reliable construction chemical solutions that support quality, durability and performance in modern construction."
+                data-ar="تلتزم بيلدكور بتقديم حلول موثوقة للكيماويات الإنشائية، بما يعزز الجودة والمتانة والأداء في قطاع البناء الحديث.">
+                BuildCore is committed to delivering reliable
+                construction chemical solutions that support
+                quality, durability and performance in modern
+                construction.
+            </p>
+
+            <p
+                data-en="Through our focus on technical expertise, innovation and customer relationships, we aim to contribute to stronger structures and sustainable construction outcomes."
+                data-ar="ومن خلال تركيزنا على الخبرة الفنية والابتكار وبناء علاقات متميزة مع عملائنا، نسعى إلى المساهمة في إنشاء هياكل أكثر متانة وتحقيق نتائج مستدامة في قطاع البناء.">
+                Through our focus on technical expertise,
+                innovation and customer relationships, we aim
+                to contribute to stronger structures and
+                sustainable construction outcomes.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+        <!-- 2. Our Expertise -->
+        
+
+<section id="expertise">
+
+    <div class="expertise-container">
+
+        <div class="expertise-header">
+
+            <span class="section-label"
+                  data-en="WHAT WE DO"
+                  data-ar="ما نقدمه">
+                WHAT WE DO
+            </span>
+
+            <h2 data-en="Our Expertise"
+                data-ar="خبراتنا">
+                Our Expertise
+            </h2>
+
+            <p
+                data-en="Combining technical knowledge and industry understanding to support modern construction through reliable chemical solutions."
+                data-ar="نجمع بين المعرفة الفنية والفهم العميق للقطاع لدعم قطاع البناء الحديث من خلال حلول كيميائية إنشائية موثوقة.">
+                Combining technical knowledge and industry
+                understanding to support modern construction
+                through reliable chemical solutions.
+            </p>
+
+        </div>
+
+        <div class="expertise-grid">
+
+            <div class="expertise-item">
+
+                <div class="expertise-number">01</div>
+
+                <h3 data-en="Concrete Technology"
+                    data-ar="تقنيات الخرسانة">
+                    Concrete Technology
+                </h3>
+
+                <p
+                    data-en="Solutions designed to enhance concrete performance, strength and durability."
+                    data-ar="حلول مصممة لتعزيز أداء الخرسانة وزيادة قوتها ومتانتها.">
+                    Solutions designed to enhance concrete
+                    performance, strength and durability.
+                </p>
+
+            </div>
+
+            <div class="expertise-item">
+
+                <div class="expertise-number">02</div>
+
+                <h3 data-en="Waterproofing Solutions"
+                    data-ar="حلول العزل المائي">
+                    Waterproofing Solutions
+                </h3>
+
+                <p
+                    data-en="Advanced approaches to protecting structures against water penetration and moisture."
+                    data-ar="حلول متطورة لحماية المنشآت من تسرب المياه والرطوبة.">
+                    Advanced approaches to protecting
+                    structures against water penetration
+                    and moisture.
+                </p>
+
+            </div>
+
+            <div class="expertise-item">
+
+                <div class="expertise-number">03</div>
+
+                <h3 data-en="Protective Coatings"
+                    data-ar="الطلاءات الواقية">
+                    Protective Coatings
+                </h3>
+
+                <p
+                    data-en="Protective solutions that help preserve surfaces and extend structural service life."
+                    data-ar="حلول وقائية تساعد على حماية الأسطح وإطالة العمر الافتراضي للمنشآت.">
+                    Protective solutions that help preserve
+                    surfaces and extend structural service life.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+        <!-- 3. Mission & Vision -->
+        
+
+<section id="mission-vision">
+
+    <div class="mission-vision-container">
+
+        <div class="mission-vision-header">
+
+            <span class="section-label"
+                  data-en="OUR PURPOSE"
+                  data-ar="هدفنا">
+                OUR PURPOSE
+            </span>
+
+            <h2
+                data-en="Driven by Purpose. Guided by Vision."
+                data-ar="رسالتنا توجهنا ورؤيتنا تلهمنا">
+                Driven by Purpose.<br>
+                Guided by Vision.
+            </h2>
+
+        </div>
+
+        <div class="mission-vision-grid">
+
+            <div class="mission-box">
+
+                <span class="mv-label"
+                      data-en="OUR MISSION"
+                      data-ar="رسالتنا">
+                    OUR MISSION
+                </span>
+
+                <h3 data-en="What Drives Us"
+                    data-ar="ما يدفعنا">
+                    What Drives Us
+                </h3>
+
+                <p
+                    data-en="Our mission is to deliver reliable and innovative construction chemical solutions while maintaining a strong commitment to quality, customer satisfaction and lasting partnerships."
+                    data-ar="تتمثل رسالتنا في تقديم حلول مبتكرة وموثوقة للكيماويات الإنشائية، مع الالتزام الراسخ بالجودة ورضا العملاء وبناء شراكات مستدامة.">
+                    Our mission is to deliver reliable and
+                    innovative construction chemical solutions
+                    while maintaining a strong commitment to
+                    quality, customer satisfaction and lasting
+                    partnerships.
+                </p>
+
+            </div>
+
+            <div class="vision-box">
+
+                <span class="mv-label"
+                      data-en="OUR VISION"
+                      data-ar="رؤيتنا">
+                    OUR VISION
+                </span>
+
+                <h3 data-en="Where We Aspire to Be"
+                    data-ar="طموحنا للمستقبل">
+                    Where We Aspire to Be
+                </h3>
+
+                <p
+                    data-en="Our vision is to be a trusted name in construction solutions, contributing to stronger structures, sustainable development and a better built environment."
+                    data-ar="نتطلع إلى أن نكون اسماً موثوقاً في مجال الحلول الإنشائية، وأن نساهم في بناء منشآت أكثر متانة ودعم التنمية المستدامة وبيئة عمرانية أفضل.">
+                    Our vision is to be a trusted name in
+                    construction solutions, contributing to
+                    stronger structures, sustainable development
+                    and a better built environment.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+        <!-- 4. Chairman's Message -->
+        
+
+<section id="chairman-message">
+
+    <div class="chairman-container">
+
+        <div class="chairman-image">
+
+            <img src="assets/images/chairman.jpg"
+                 alt="Chairman of BuildCore">
+
+        </div>
+
+        <div class="chairman-content">
+
+            <span class="section-label"
+                  data-en="LEADERSHIP"
+                  data-ar="القيادة">
+                LEADERSHIP
+            </span>
+
+            <h2
+                data-en="A Message from Our Chairman"
+                data-ar="كلمة رئيس مجلس الإدارة">
+                A Message from Our Chairman
+            </h2>
+
+            <div class="quote-mark">“</div>
+
+            <p
+                data-en="At BuildCore, we believe that every strong structure begins with a strong foundation of trust, quality and commitment. Our vision is to contribute to the construction industry by delivering reliable solutions, fostering lasting partnerships and continuously pursuing excellence. We remain committed to innovation, customer satisfaction and building a future where quality stands at the core of everything we do."
+                data-ar="في بيلدكور، نؤمن بأن كل منشأة قوية تبدأ بأساس راسخ من الثقة والجودة والالتزام. ونسعى إلى الإسهام في تطوير قطاع البناء من خلال تقديم حلول موثوقة، وتعزيز الشراكات المستدامة، والسعي المستمر نحو التميز. ونظل ملتزمين بالابتكار ورضا العملاء وبناء مستقبل تكون فيه الجودة محور كل ما نقوم به.">
+                At BuildCore, we believe that every strong
+                structure begins with a strong foundation
+                of trust, quality and commitment.
+
+                Our vision is to contribute to the construction
+                industry by delivering reliable solutions,
+                fostering lasting partnerships and continuously
+                pursuing excellence.
+
+                We remain committed to innovation, customer
+                satisfaction and building a future where
+                quality stands at the core of everything we do.
+            </p>
+
+            <div class="chairman-signature">
+
+                <h3
+                    data-en="Khalid Al Turki"
+                    data-ar="خالد التركي">
+                    Khalid Al Turki
+                </h3>
+
+                <span
+                    data-en="Chairman, BuildCore"
+                    data-ar="رئيس مجلس الإدارة، بيلدكور">
+                    Chairman, BuildCore
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+        <!-- 5. Final Call to Action -->
+       
+
+<section id="overview-cta">
+
+    <div class="cta-container">
+
+        <span class="cta-label"
+              data-en="LET'S BUILD TOGETHER"
+              data-ar="لنبنِ المستقبل معاً">
+            LET'S BUILD TOGETHER
+        </span>
+
+        <h2
+            data-en="Ready to Build Something Stronger?"
+            data-ar="هل أنت مستعد لبناء مستقبل أكثر متانة؟">
+            Ready to Build Something Stronger?
+        </h2>
+
+        <p
+            data-en="Connect with BuildCore to explore reliable construction chemical solutions for your next project."
+            data-ar="تواصل مع بيلدكور لاستكشاف حلول موثوقة للكيماويات الإنشائية لمشروعك القادم.">
+            Connect with BuildCore to explore reliable
+            construction chemical solutions for your
+            next project.
+        </p>
+
+        <a href="contact.html" class="cta-button">
+
+            <span
+                data-en="Contact Us"
+                data-ar="تواصل معنا">
+                Contact Us
+            </span>
+
+            <span class="cta-arrow"
+      data-en="→"
+      data-ar="←">→</span>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+    </main>
+    <!-- FOOTER -->
+    <footer class="site-footer" id="contact">
+
+        <div class="footer-main">
+
+            <!-- Brand and Social Media -->
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo">
+                    <img src="assets/icons/Logo 2.png"
+                         alt="BuildCore Construction Solutions">
+                </a>
+
+                <h3 data-en="Connect With Us"
+                    data-ar="تواصل معنا">Connect With Us</h3>
+
+                <div class="footer-socials">
+
+                    <a href="https://www.youtube.com/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="YouTube"
+                       class="social-link">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M23 7.1a3 3 0 0 0-2.1-2.2C19 4.4 12 4.4 12 4.4s-7 0-8.9.5A3 3 0 0 0 1 7.1 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.9 3 3 0 0 0 2.1 2.2c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.2 31 31 0 0 0 .5-4.9 31 31 0 0 0-.5-4.9ZM9.6 15.5v-7l6 3.5z"/>
+                        </svg>
+                    </a>
+
+                    <a href="https://www.linkedin.com/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="LinkedIn"
+                       class="social-link">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M5 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM3.5 9h3v12h-3zM9 9h2.9v1.6h.1A3.2 3.2 0 0 1 15 8.8c3.2 0 3.8 2.1 3.8 4.8V21h-3v-6.6c0-1.6 0-3.6-2.2-3.6s-2.5 1.7-2.5 3.5V21H9z"/>
+                        </svg>
+                    </a>
+
+                    <a href="https://x.com/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="X"
+                       class="social-link">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.8 5.7 22H2.5l7.3-8.4L1.8 2h6.5l4.5 6.7zm-1.1 18h1.7L7.3 3.9H5.5z"/>
+                        </svg>
+                    </a>
+
+                    <a href="https://www.instagram.com/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Instagram"
+                       class="social-link">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2Zm5 2.3a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11Zm0 2.2a3.3 3.3 0 1 0 0 6.6 3.3 3.3 0 0 0 0-6.6Zm5.7-3.1a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6Z"/>
+                        </svg>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-links">
+                <h3 data-en="Quick Links"
+                    data-ar="روابط سريعة">Quick Links</h3>
+
+                <ul>
+                    <li>
+                        <a href="overview.html"
+                           data-en="Who Are We"
+                           data-ar="من نحن">Who Are We</a>
+                    </li>
+
+                    <li>
+                        <a href="index.html#products"
+                           data-en="Products & Solutions"
+                           data-ar="المنتجات والحلول">Products & Solutions</a>
+                    </li>
+
+                    <li>
+                        <a href="projects.html"
+                           data-en="Projects"
+                           data-ar="المشاريع">Projects</a>
+                    </li>
+
+                    <li>
+                        <a href="index.html#industries"
+                           data-en="Industries"
+                           data-ar="القطاعات">Industries</a>
+                    </li>
+
+                    <li>
+                        <a href="media.html"
+                           data-en="Media"
+                           data-ar="الإعلام">Media</a>
+                    </li>
+
+                    <li>
+                        <a href="index.html#clients-partners"
+                           data-en="Clients & Partners"
+                           data-ar="العملاء والشركاء">Clients & Partners</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Contact Us -->
+            <div class="footer-contact">
+                <h3 data-en="Contact Us"
+                    data-ar="اتصل بنا">Contact Us</h3>
+
+                <ul>
+                    <li>
+                        <span class="contact-label"
+                              data-en="Phone"
+                              data-ar="الهاتف">Phone</span>
+                        <a href="tel:+966XXXXXXXXX">+966 XX XXX XXXX</a>
+                    </li>
+
+                    <li>
+                        <span class="contact-label"
+                              data-en="Email"
+                              data-ar="البريد الإلكتروني">Email</span>
+                        <a href="mailto:info@yourdomain.com">info@yourdomain.com</a>
+                    </li>
+
+                    <li>
+                        <span class="contact-label"
+                              data-en="Address"
+                              data-ar="العنوان">Address</span>
+
+                        <p>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Riyadh%2C+Saudi+Arabia"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               data-en="Riyadh, Saudi Arabia"
+                               data-ar="الرياض، المملكة العربية السعودية">
+                                Riyadh, Saudi Arabia
+                            </a>
+                        </p>
+                    </li>
+                </ul>
+
+                <a href="contact.html"
+                   class="footer-message-button"
+                   data-en="Send Us a Message"
+                   data-ar="أرسل لنا رسالة">
+                    Send Us a Message
+                    <span aria-hidden="true">→</span>
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+
+            <div class="footer-legal">
+                <a href="terms-and-conditions.html"
+                   data-en="Terms & Conditions"
+                   data-ar="الشروط والأحكام">
+                    Terms & Conditions
+                </a>
+
+                <a href="privacy-policy.html"
+                   data-en="Privacy Policy"
+                   data-ar="سياسة الخصوصية">
+                    Privacy Policy
+                </a>
+            </div>
+
+            <p class="footer-copyright">
+                © <span id="footer-year"></span>
+
+                <span data-en="BuildCore Construction Solutions. All Rights Reserved."
+                      data-ar="بيلدكور لحلول البناء. جميع الحقوق محفوظة.">
+                    BuildCore Construction Solutions. All Rights Reserved.
+                </span>
+            </p>
+
+        </div>
+    </footer>
+    <script src="privacy-policy.js"></script>
+
+    <script src=""></script>
+
+</body>
+</html>
+
+

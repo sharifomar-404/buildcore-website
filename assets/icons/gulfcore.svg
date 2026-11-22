@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="160" viewBox="0 0 420 160" role="img" aria-labelledby="title desc">
+  <title id="title">Gulfcore — fictional demonstration logo</title><desc id="desc">Layered abstract wave and foundation symbol with the word Gulfcore.</desc>
+  <g transform="translate(25 30)" fill="none" stroke-linecap="round" stroke-width="8">
+    <path d="M8 35C27 12 51 12 70 35S113 58 132 35" stroke="#183D32"/>
+    <path d="M8 61C27 38 51 38 70 61S113 84 132 61" stroke="#C08B52"/>
+    <path d="M8 87H132" stroke="#183D32"/>
+  </g>
+  <text x="175" y="91" fill="#183D32" font-family="Arial,sans-serif" font-size="44" font-weight="700" letter-spacing="1">GULFCORE</text>
+  <text x="178" y="119" fill="#718078" font-family="Arial,sans-serif" font-size="13" letter-spacing="2.5">INDUSTRIAL MATERIALS</text>
+</svg>

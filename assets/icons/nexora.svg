@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="160" viewBox="0 0 420 160" role="img" aria-labelledby="title desc">
+  <title id="title">Nexora — fictional demonstration logo</title><desc id="desc">Geometric green and gold abstract building mark with the word Nexora.</desc>
+  <g transform="translate(28 28)" fill="none" stroke-linejoin="round" stroke-width="8">
+    <path d="M8 92V38L52 8L96 38V92" stroke="#183D32"/>
+    <path d="M30 92V52L52 37L74 52V92" stroke="#C08B52"/>
+    <path d="M8 92H96" stroke="#183D32"/>
+  </g>
+  <text x="150" y="91" fill="#183D32" font-family="Arial,sans-serif" font-size="48" font-weight="700" letter-spacing="2">NEXORA</text>
+  <text x="153" y="119" fill="#718078" font-family="Arial,sans-serif" font-size="13" letter-spacing="3">CONSTRUCTION GROUP</text>
+</svg>

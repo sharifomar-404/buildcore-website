@@ -14,7 +14,6 @@
                 localStorage.getItem("selectedLanguage") || "en";
 
             document.documentElement.lang = initialLanguage;
-
             document.documentElement.dir =
                 initialLanguage === "ar" ? "rtl" : "ltr";
         })();
@@ -24,29 +23,117 @@
 </head>
 
 <body>
+
     <header>
         <div class="logo">
-            BUILDCORE
-            <span>CONSTRUCTION Solutions</span>
+            <a href="index.html">
+                <img src="assets/icons/Logo 2.png"
+                     alt="BuildCore Construction Solutions">
+            </a>
         </div>
 
         <nav>
             <!-- Desktop Navigation -->
             <ul>
-                <li><a href="#" data-en="Who Are We?" data-ar="من نحن؟">Who Are We?</a></li>
-                <li><a href="#" data-en="Products" data-ar="المنتجات">Products</a></li>
-                <li><a href="#" data-en="Solutions" data-ar="الحلول">Solutions</a></li>
-                <li><a href="#" data-en="Industries" data-ar="القطاعات">Industries</a></li>
-                <li><a href="#" data-en="Projects" data-ar="المشاريع">Projects</a></li>
-                <li><a href="#" data-en="Media" data-ar="المركز الإعلامي">Media</a></li>
+                <li class="nav-dropdown">
+                    <a href="#" data-en="Who Are We" data-ar="من نحن">
+                        Who Are We
+                        <span class="nav-arrow">⌄</span>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="overview.html"
+                               data-en="Overview"
+                               data-ar="نظرة عامة">Overview</a>
+                        </li>
+
+                        <li>
+                            <a href="why-buildcore.html"
+                               data-en="Why BuildCore?"
+                               data-ar="لماذا بيلدكور؟">Why BuildCore?</a>
+                        </li>
+
+                        <li>
+                            <a href="#clients-partners"
+                               data-en="Our Partners"
+                               data-ar="شركاؤنا">Our Partners</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="index.html#products"
+                       data-en="Products"
+                       data-ar="المنتجات">Products</a>
+                </li>
+
+                <li>
+                    <a href="index.html#products"
+                       data-en="Solutions"
+                       data-ar="الحلول">Solutions</a>
+                </li>
+
+                <li class="nav-dropdown">
+                    <a href="projects.html"
+                       data-en="Projects"
+                       data-ar="المشاريع">
+                        Projects
+                        <span class="nav-arrow">⌄</span>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="projects.html"
+                               data-en="Our Projects"
+                               data-ar="مشاريعنا">Our Projects</a>
+                        </li>
+
+                        <li>
+                            <a href="index.html#clients-partners"
+                               data-en="Clients"
+                               data-ar="عملاؤنا">Clients</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-dropdown">
+                    <a href="sustainability.html"
+                       data-en="Commitment"
+                       data-ar="التزامنا">
+                        Commitment
+                        <span class="nav-arrow">⌄</span>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="sustainability.html"
+                               data-en="Sustainability"
+                               data-ar="الاستدامة">Sustainability</a>
+                        </li>
+
+                        <li>
+                            <a href="vision-2030.html"
+                               data-en="Vision 2030"
+                               data-ar="رؤية 2030">Vision 2030</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="media.html"
+                       data-en="Media"
+                       data-ar="الإعلام">Media</a>
+                </li>
             </ul>
 
-            <!-- Search -->
+            <!-- Desktop Search -->
             <div class="search-container">
-                <form class="search-form" role="search">
+                <form class="search-form" role="search" id="searchForm">
                     <input
                         type="search"
                         class="search-input"
+                        id="searchInput"
                         placeholder="Search..."
                         aria-label="Search website"
                     >
@@ -54,47 +141,56 @@
                     <button
                         class="search-button"
                         type="button"
+                        id="searchButton"
                         aria-label="Open search"
                         aria-expanded="false"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg"
-                            width="21"
-                            height="21"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round">
+                             width="21"
+                             height="21"
+                             viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="2"
+                             stroke-linecap="round"
+                             stroke-linejoin="round">
                             <circle cx="11" cy="11" r="8"></circle>
                             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                         </svg>
                     </button>
                 </form>
+
+                <!-- Only one search results container -->
+                <div class="search-results" id="searchResults"></div>
             </div>
 
             <!-- Desktop Language Dropdown -->
             <div class="language-dropdown">
-                <button class="language-dropdown-toggle" type="button"
-                    aria-label="Select language"
-                    aria-expanded="false">
+                <button class="language-dropdown-toggle"
+                        type="button"
+                        aria-label="Select language"
+                        aria-expanded="false">
 
                     <img class="current-language-flag"
-                        src="https://flagcdn.com/gb.svg"
-                        alt="English">
+                         src="https://flagcdn.com/gb.svg"
+                         alt="English">
 
                     <span class="dropdown-arrow">⌄</span>
                 </button>
 
                 <div class="language-dropdown-menu">
-                    <button class="language-btn active" type="button"
-                        data-lang="en" aria-pressed="true">
+                    <button class="language-btn active"
+                            type="button"
+                            data-lang="en"
+                            aria-pressed="true">
                         <img src="https://flagcdn.com/gb.svg" alt="">
                         <span>English</span>
                     </button>
 
-                    <button class="language-btn" type="button"
-                        data-lang="ar" aria-pressed="false">
+                    <button class="language-btn"
+                            type="button"
+                            data-lang="ar"
+                            aria-pressed="false">
                         <img src="https://flagcdn.com/sa.svg" alt="">
                         <span>العربية</span>
                     </button>
@@ -104,9 +200,9 @@
 
         <!-- Mobile Hamburger -->
         <button class="menu-toggle"
-            aria-label="Open navigation menu"
-            aria-expanded="false"
-            aria-controls="mobile-menu">
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="mobile-menu">
 
             <span></span>
             <span></span>
@@ -118,51 +214,127 @@
     <div class="menu-overlay"></div>
 
     <div class="mobile-menu" id="mobile-menu">
+
         <button class="menu-close" aria-label="Close navigation menu">
             &times;
         </button>
 
         <nav>
             <ul>
-                <li><a href="#" data-en="Who Are We?" data-ar="من نحن؟">Who Are We?</a></li>
-                <li><a href="#" data-en="Products" data-ar="المنتجات">Products</a></li>
-                <li><a href="#" data-en="Solutions" data-ar="الحلول">Solutions</a></li>
-                <li><a href="#" data-en="Industries" data-ar="القطاعات">Industries</a></li>
-                <li><a href="#" data-en="Projects" data-ar="المشاريع">Projects</a></li>
-                <li><a href="#" data-en="Media" data-ar="المركز الإعلامي">Media</a></li>
+
+                <!-- Who Are We -->
+                <li class="mobile-nav-dropdown">
+                    <button class="mobile-dropdown-toggle"
+                            type="button"
+                            aria-expanded="false">
+                        <span data-en="Who Are We" data-ar="من نحن">Who Are We</span>
+                        <span class="mobile-dropdown-arrow">⌄</span>
+                    </button>
+
+                    <ul class="mobile-submenu">
+                        <li>
+                            <a href="overview.html"
+                               data-en="Overview"
+                               data-ar="نظرة عامة">Overview</a>
+                        </li>
+
+                        <li>
+                            <a href="why-buildcore.html"
+                               data-en="Why BuildCore?"
+                               data-ar="لماذا بيلدكور؟">Why BuildCore?</a>
+                        </li>
+
+                        <li>
+                            <a href="index.html#clients-partners"
+                               data-en="Our Partners"
+                               data-ar="شركاؤنا">Our Partners</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Products -->
+                <li>
+                    <a href="index.html#products"
+                       data-en="Products"
+                       data-ar="المنتجات">Products</a>
+                </li>
+
+                <!-- Solutions -->
+                <li>
+                    <a href="index.html#products"
+                       data-en="Solutions"
+                       data-ar="الحلول">Solutions</a>
+                </li>
+
+                <!-- Industries -->
+                <li>
+                    <a href="index.html#industries"
+                       data-en="Industries"
+                       data-ar="القطاعات">Industries</a>
+                </li>
+
+                <!-- Projects -->
+                <li class="mobile-nav-dropdown">
+                    <button class="mobile-dropdown-toggle"
+                            type="button"
+                            aria-expanded="false">
+                        <span data-en="Projects" data-ar="المشاريع">Projects</span>
+                        <span class="mobile-dropdown-arrow">⌄</span>
+                    </button>
+
+                    <ul class="mobile-submenu">
+                        <li>
+                            <a href="projects.html"
+                               data-en="Our Projects"
+                               data-ar="مشاريعنا">Our Projects</a>
+                        </li>
+
+                        <li>
+                            <a href="index.html#clients-partners"
+                               data-en="Clients"
+                               data-ar="عملاؤنا">Clients</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Commitment -->
+                <li class="mobile-nav-dropdown">
+                    <button class="mobile-dropdown-toggle"
+                            type="button"
+                            aria-expanded="false">
+                        <span data-en="Commitment" data-ar="التزامنا">Commitment</span>
+                        <span class="mobile-dropdown-arrow">⌄</span>
+                    </button>
+
+                    <ul class="mobile-submenu">
+                        <li>
+                            <a href="sustainability.html"
+                               data-en="Sustainability"
+                               data-ar="الاستدامة">Sustainability</a>
+                        </li>
+
+                        <li>
+                            <a href="vision-2030.html"
+                               data-en="Vision 2030"
+                               data-ar="رؤية 2030">Vision 2030</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Media -->
+                <li>
+                    <a href="media.html"
+                       data-en="Media"
+                       data-ar="المركز الإعلامي">Media</a>
+                </li>
+
             </ul>
         </nav>
-
-        <!-- Mobile Language Dropdown -->
-        <div class="language-dropdown mobile-language-dropdown">
-            <button class="language-dropdown-toggle" type="button"
-                aria-label="Select language"
-                aria-expanded="false">
-
-                <img class="current-language-flag"
-                    src="https://flagcdn.com/gb.svg"
-                    alt="English">
-
-                <span class="dropdown-arrow">⌄</span>
-            </button>
-
-            <div class="language-dropdown-menu">
-                <button class="language-btn active" type="button"
-                    data-lang="en" aria-pressed="true">
-                    <img src="https://flagcdn.com/gb.svg" alt="">
-                    <span>English</span>
-                </button>
-
-                <button class="language-btn" type="button"
-                    data-lang="ar" aria-pressed="false">
-                    <img src="https://flagcdn.com/sa.svg" alt="">
-                    <span>العربية</span>
-                </button>
-            </div>
-        </div>
     </div>
 
     <main>
+
+        <!-- HERO SECTION -->
         <section class="hero">
 
             <!-- Slide 1: Company Introduction -->
@@ -175,11 +347,13 @@
                         for stronger, more durable and reliable structures.
                     </p>
 
-                    <a href="#" class="btn-primary">Explore Our Solutions</a>
+                    <a href="#products" class="btn-primary">
+                        Explore Our Solutions
+                    </a>
                 </div>
 
                 <div class="hero-image hero-company-image"
-                    style="background-image: url('assets/images/Hero\ -\ 1.2.jpg');">
+                     style="background-image: url('assets/images/Hero\ -\ 1.2.jpg');">
                 </div>
             </div>
 
@@ -193,11 +367,13 @@
                         innovative solutions for the construction industry.
                     </p>
 
-                    <a href="#" class="btn-primary">Why BuildCore?</a>
+                    <a href="why-buildcore.html" class="btn-primary">
+                        Why BuildCore?
+                    </a>
                 </div>
 
                 <div class="hero-image"
-                    style="background-image: url('assets/images/Hero\ -\ 2.jpg');">
+                     style="background-image: url('assets/images/Hero\ -\ 2.jpg');">
                 </div>
             </div>
 
@@ -211,51 +387,47 @@
                         concepts showcasing our range of solutions.
                     </p>
 
-                    <a href="#" class="btn-primary">Explore Projects</a>
+                    <a href="projects.html" class="btn-primary">
+                        Explore Projects
+                    </a>
                 </div>
 
                 <div class="hero-image hero-projects-image"
-                    style="background-image: url('assets/images/Hero\ -\ 3.1.jpg');">
+                     style="background-image: url('assets/images/Hero\ -\ 3.1.jpg');">
                 </div>
             </div>
 
             <!-- Carousel Controls -->
-<div class="hero-controls">
+            <div class="hero-controls">
+                <button class="hero-arrow prev" aria-label="Previous slide">
+                    &#8592;
+                </button>
 
-    <button class="hero-arrow prev" aria-label="Previous slide">
-        &#8592;
-    </button>
+                <button class="hero-arrow next" aria-label="Next slide">
+                    &#8594;
+                </button>
+            </div>
 
-    <button class="hero-arrow next" aria-label="Next slide">
-        &#8594;
-    </button>
+        </section>
 
-</div>
+        <!-- Slide Indicators -->
+        <div class="hero-indicators">
+            <button class="active" aria-label="Slide 1"></button>
+            <button aria-label="Slide 2"></button>
+            <button aria-label="Slide 3"></button>
+        </div>
 
-</section>
-
-<!-- Slide Indicators — outside the hero -->
-<div class="hero-indicators">
-    <button class="active" aria-label="Slide 1"></button>
-    <button aria-label="Slide 2"></button>
-    <button aria-label="Slide 3"></button>
-</div>
-
-        <!-- ===================================
-             ABOUT BUILDCORE
-        =================================== -->
-
+        <!-- ABOUT BUILDCORE -->
         <section class="about-section" id="about">
 
             <div class="about-heading">
                 <span class="about-kicker"
-                    data-en="ABOUT BUILDCORE"
-                    data-ar="عن بيلد كور">
+                      data-en="ABOUT BUILDCORE"
+                      data-ar="عن بيلد كور">
                     ABOUT BUILDCORE
                 </span>
 
-                <h2
-                    data-en="Engineering Strength Into Every Structure."
+                <h2 data-en="Engineering Strength Into Every Structure."
                     data-ar="هندسة القوة في كل منشأة.">
                     Engineering Strength Into Every Structure.
                 </h2>
@@ -265,13 +437,10 @@
 
                 <!-- About Image -->
                 <div class="about-image-wrap">
-                    <img
-                        src="assets/images/About image.webp"
-                        alt="Construction engineering and building materials"
-                        class="about-image"
-                    >
+                    <img src="assets/images/About image.webp"
+                         alt="Construction engineering and building materials"
+                         class="about-image">
 
-                    <!-- Top-left gold frame -->
                     <div class="about-image-accent"></div>
                 </div>
 
@@ -279,38 +448,30 @@
                 <div class="about-content">
 
                     <span class="about-subheading"
-                        data-en="OUR APPROACH"
-                        data-ar="نهجنا">
+                          data-en="OUR APPROACH"
+                          data-ar="نهجنا">
                         OUR APPROACH
                     </span>
 
-                    <h3
-                        data-en="Construction Chemical Solutions, Driven by Engineering."
+                    <h3 data-en="Construction Chemical Solutions, Driven by Engineering."
                         data-ar="حلول الكيماويات الإنشائية برؤية هندسية.">
                         Construction Chemical Solutions, Driven by Engineering.
                     </h3>
 
-                    <p
-                        data-en="BuildCore focuses on construction chemical solutions designed to support the strength, durability and performance of modern structures. We bring together technical understanding, quality-focused practices and a commitment to reliable results."
-                        data-ar="تركز بيلد كور على حلول الكيماويات الإنشائية المصممة لدعم قوة المنشآت الحديثة ومتانتها وأدائها. ونجمع بين الفهم التقني وممارسات الجودة والالتزام بتقديم نتائج موثوقة.">
+                    <p data-en="BuildCore focuses on construction chemical solutions designed to support the strength, durability and performance of modern structures. We bring together technical understanding, quality-focused practices and a commitment to reliable results."
+                       data-ar="تركز بيلد كور على حلول الكيماويات الإنشائية المصممة لدعم قوة المنشآت الحديثة ومتانتها وأدائها. ونجمع بين الفهم التقني وممارسات الجودة والالتزام بتقديم نتائج موثوقة.">
                         BuildCore focuses on construction chemical solutions designed to support the strength, durability and performance of modern structures. We bring together technical understanding, quality-focused practices and a commitment to reliable results.
                     </p>
 
-                    <p
-                        data-en="Our approach is built around understanding construction requirements and providing solutions suited to the demands of each application."
-                        data-ar="يرتكز نهجنا على فهم متطلبات البناء وتقديم حلول تتناسب مع احتياجات كل تطبيق.">
+                    <p data-en="Our approach is built around understanding construction requirements and providing solutions suited to the demands of each application."
+                       data-ar="يرتكز نهجنا على فهم متطلبات البناء وتقديم حلول تتناسب مع احتياجات كل تطبيق.">
                         Our approach is built around understanding construction requirements and providing solutions suited to the demands of each application.
                     </p>
 
-                    <a href="#"
-                        class="about-link"
-                        data-en="Discover Our Solutions"
-                        data-ar="اكتشف حلولنا">
+                    <a href="#products" class="btn-primary">
                         Discover Our Solutions
-                        <span aria-hidden="true">→</span>
                     </a>
 
-                    <!-- Bottom-right gold frame: attached to the white box -->
                     <div class="about-image-accent-bottom"></div>
 
                 </div>
@@ -321,51 +482,989 @@
 
                 <article class="about-strength">
                     <span class="strength-number">01</span>
-                    <h4
-                        data-en="Technical Expertise"
+                    <h4 data-en="Technical Expertise"
                         data-ar="الخبرة التقنية">
                         Technical Expertise
                     </h4>
-                    <p
-                        data-en="A technical approach to understanding construction materials, applications and requirements."
-                        data-ar="نهج تقني لفهم مواد البناء وتطبيقاتها ومتطلباتها.">
+                    <p data-en="A technical approach to understanding construction materials, applications and requirements."
+                       data-ar="نهج تقني لفهم مواد البناء وتطبيقاتها ومتطلباتها.">
                         A technical approach to understanding construction materials, applications and requirements.
                     </p>
                 </article>
 
                 <article class="about-strength">
                     <span class="strength-number">02</span>
-                    <h4
-                        data-en="Quality Commitment"
+                    <h4 data-en="Quality Commitment"
                         data-ar="الالتزام بالجودة">
                         Quality Commitment
                     </h4>
-                    <p
-                        data-en="A focus on quality-conscious practices throughout the selection and application of solutions."
-                        data-ar="التركيز على ممارسات تراعي الجودة في اختيار الحلول وتطبيقها.">
+                    <p data-en="A focus on quality-conscious practices throughout the selection and application of solutions."
+                       data-ar="التركيز على ممارسات تراعي الجودة في اختيار الحلول وتطبيقها.">
                         A focus on quality-conscious practices throughout the selection and application of solutions.
                     </p>
                 </article>
 
                 <article class="about-strength">
                     <span class="strength-number">03</span>
-                    <h4
-                        data-en="Reliable Performance"
+                    <h4 data-en="Reliable Performance"
                         data-ar="الأداء الموثوق">
                         Reliable Performance
                     </h4>
-                    <p
-                        data-en="Solutions selected to support durability, consistency and dependable construction outcomes."
-                        data-ar="حلول مختارة لدعم المتانة والاتساق وتحقيق نتائج إنشائية يمكن الاعتماد عليها.">
+                    <p data-en="Solutions selected to support durability, consistency and dependable construction outcomes."
+                       data-ar="حلول مختارة لدعم المتانة والاتساق وتحقيق نتائج إنشائية يمكن الاعتماد عليها.">
                         Solutions selected to support durability, consistency and dependable construction outcomes.
                     </p>
                 </article>
 
             </div>
+        </section>
+
+        <!-- PRODUCTS & SOLUTIONS -->
+        <section class="products-section" id="products">
+
+            <div class="products-heading">
+                <span class="products-kicker"
+                      data-en="WHAT WE OFFER"
+                      data-ar="ما نقدمه">
+                    WHAT WE OFFER
+                </span>
+
+                <h2 data-en="Products & Solutions"
+                    data-ar="المنتجات والحلول">
+                    Products & Solutions
+                </h2>
+
+                <p data-en="Explore our range of construction chemical product categories and solutions."
+                   data-ar="اكتشف مجموعة منتجاتنا وحلولنا في مجال الكيماويات الإنشائية.">
+                    Explore our range of construction chemical product categories and solutions.
+                </p>
+            </div>
+
+            <div class="products-grid">
+
+                <!-- 01. Concrete Admixtures -->
+                <article class="product-card">
+                    <a href="concrete-admixtures.html" class="product-card-link">
+                        <img src="assets/images/concrete admixture 2.jpg"
+                             alt="Concrete admixtures"
+                             class="product-image">
+
+                        <div class="product-card-content">
+                            <span class="product-number">01</span>
+
+                            <h3 data-en="Concrete Admixtures"
+                                data-ar="إضافات الخرسانة">
+                                Concrete Admixtures
+                            </h3>
+
+                            <span class="product-arrow" aria-hidden="true">↗</span>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- 02. Waterproofing Solutions -->
+                <article class="product-card">
+                    <a href="waterproofing.html" class="product-card-link">
+                        <img src="assets/images/Water Proofing.jpg"
+                             alt="Waterproofing solutions"
+                             class="product-image">
+
+                        <div class="product-card-content">
+                            <span class="product-number">02</span>
+
+                            <h3 data-en="Waterproofing Solutions"
+                                data-ar="حلول العزل المائي">
+                                Waterproofing Solutions
+                            </h3>
+
+                            <span class="product-arrow" aria-hidden="true">↗</span>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- 03. Repair & Protection -->
+                <article class="product-card">
+                    <a href="repair-protection.html" class="product-card-link">
+                        <img src="assets/images/Concrete-Repair-Protection-Service.jpg"
+                             alt="Concrete repair and protection"
+                             class="product-image">
+
+                        <div class="product-card-content">
+                            <span class="product-number">03</span>
+
+                            <h3 data-en="Repair & Protection"
+                                data-ar="الإصلاح والحماية">
+                                Repair & Protection
+                            </h3>
+
+                            <span class="product-arrow" aria-hidden="true">↗</span>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- 04. Flooring & Coatings -->
+                <article class="product-card">
+                    <a href="flooring-coatings.html" class="product-card-link">
+                        <img src="assets/images/Flooring and coating.jpg"
+                             alt="Flooring and coatings"
+                             class="product-image">
+
+                        <div class="product-card-content">
+                            <span class="product-number">04</span>
+
+                            <h3 data-en="Flooring & Coatings"
+                                data-ar="الأرضيات والطلاءات">
+                                Flooring & Coatings
+                            </h3>
+
+                            <span class="product-arrow" aria-hidden="true">↗</span>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- 05. Grouts & Anchoring -->
+                <article class="product-card">
+                    <a href="grouts-anchoring.html" class="product-card-link">
+                        <img src="assets/images/grouts-anchors.jpg"
+                             alt="Grouts and anchoring"
+                             class="product-image">
+
+                        <div class="product-card-content">
+                            <span class="product-number">05</span>
+
+                            <h3 data-en="Grouts & Anchoring"
+                                data-ar="مواد الحقن والتثبيت">
+                                Grouts & Anchoring
+                            </h3>
+
+                            <span class="product-arrow" aria-hidden="true">↗</span>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- 06. Sealants & Adhesives -->
+                <article class="product-card">
+                    <a href="sealants-adhesives.html" class="product-card-link">
+                        <img src="assets/images/Gemini_Generated_Image_yobyh4yobyh4yoby.jpg"
+                             alt="Sealants and adhesives"
+                             class="product-image">
+
+                        <div class="product-card-content">
+                            <span class="product-number">06</span>
+
+                            <h3 data-en="Sealants & Adhesives"
+                                data-ar="مواد منع التسرب والمواد اللاصقة">
+                                Sealants & Adhesives
+                            </h3>
+
+                            <span class="product-arrow" aria-hidden="true">↗</span>
+                        </div>
+                    </a>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- BUILDCORE AT A GLANCE -->
+        <section class="glance-section" id="at-a-glance">
+
+            <div class="glance-heading">
+                <span class="glance-kicker"
+                      data-en="BUILDCORE OVERVIEW"
+                      data-ar="نبذة عن بيلدكور">
+                    BUILDCORE OVERVIEW
+                </span>
+
+                <h2 data-en="BuildCore at a Glance"
+                    data-ar="بيلدكور في لمحة">
+                    BuildCore at a Glance
+                </h2>
+            </div>
+
+            <!-- Visual Highlights -->
+            <div class="glance-visuals">
+
+                <!-- Project Slideshow -->
+                <div class="glance-projects">
+                    <div class="glance-project-slides">
+
+                        <!-- Project Slide 1 -->
+                        <div class="glance-project-slide active">
+                            <img src="assets/images/riyadh metro.webp"
+                                 alt="BuildCore project"
+                                 class="glance-project-image">
+
+                            <div class="glance-project-overlay">
+                                <span class="glance-project-label"
+                                      data-en="OUR PROJECTS"
+                                      data-ar="مشاريعنا">
+                                    OUR PROJECTS
+                                </span>
+
+                                <h3 data-en="Riyadh Metro"
+                                    data-ar="قطار الرياض">
+                                    Riyadh Metro
+                                </h3>
+                            </div>
+                        </div>
+
+                        <!-- Project Slide 2 -->
+                        <div class="glance-project-slide">
+                            <img src="assets/images/KAIA.jpeg"
+                                 alt="BuildCore project"
+                                 class="glance-project-image">
+
+                            <div class="glance-project-overlay">
+                                <span class="glance-project-label"
+                                      data-en="OUR PROJECTS"
+                                      data-ar="مشاريعنا">
+                                    OUR PROJECTS
+                                </span>
+
+                                <h3 data-en="King Abdulaziz International Airport"
+                                    data-ar="مطار الملك عبد العزيز الدولي">
+                                    King Abdulaziz International Airport
+                                </h3>
+                            </div>
+                        </div>
+
+                        <!-- Project Slide 3 -->
+                        <div class="glance-project-slide">
+                            <img src="assets/images/King Abdullah Sports City.webp"
+                                 alt="BuildCore project"
+                                 class="glance-project-image">
+
+                            <div class="glance-project-overlay">
+                                <span class="glance-project-label"
+                                      data-en="OUR PROJECTS"
+                                      data-ar="مشاريعنا">
+                                    OUR PROJECTS
+                                </span>
+
+                                <h3 data-en="King Abdullah Sports City"
+                                    data-ar="مدينة الملك عبدالله الرياضية">
+                                    King Abdullah Sports City
+                                </h3>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Slideshow Controls -->
+                    <div class="glance-project-controls">
+                        <button class="glance-project-prev"
+                                type="button"
+                                aria-label="Previous project">
+                            ←
+                        </button>
+
+                        <div class="glance-project-indicators">
+                            <button class="glance-project-indicator active"
+                                    type="button"
+                                    aria-label="Show project 1"></button>
+
+                            <button class="glance-project-indicator"
+                                    type="button"
+                                    aria-label="Show project 2"></button>
+
+                            <button class="glance-project-indicator"
+                                    type="button"
+                                    aria-label="Show project 3"></button>
+                        </div>
+
+                        <button class="glance-project-next"
+                                type="button"
+                                aria-label="Next project">
+                            →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Saudi Vision 2030 Image -->
+                <div class="glance-vision">
+                    <img src="assets/images/vision 2030.jpg"
+                         alt="Saudi Vision 2030"
+                         class="glance-vision-image">
+
+                    <div class="glance-vision-overlay">
+                        <span data-en="ALIGNED WITH"
+                              data-ar="تماشيًا مع">
+                            ALIGNED WITH
+                        </span>
+
+                        <h3 data-en="Saudi Vision 2030"
+                            data-ar="رؤية السعودية 2030">
+                            Saudi Vision 2030
+                        </h3>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Company Figures -->
+            <div class="glance-stats">
+
+                <div class="glance-stat">
+                    <span class="glance-stat-number">03</span>
+                    <h3 data-en="Fully Equipped Plants"
+                        data-ar="مصانع مجهزة بالكامل">
+                        Fully Equipped Plants
+                    </h3>
+                    <p data-en="in Saudi Arabia"
+                       data-ar="في السعودية">
+                        Kuwait · Bahrain · Oman
+                    </p>
+                </div>
+
+                <div class="glance-stat">
+                    <span class="glance-stat-number">04</span>
+                    <h3 data-en="Warehouses"
+                        data-ar="مستودعات">
+                        Warehouses
+                    </h3>
+                </div>
+
+                <div class="glance-stat">
+                    <span class="glance-stat-number">04</span>
+                    <h3 data-en="Regional Offices"
+                        data-ar="مكاتب إقليمية">
+                        Regional Offices
+                    </h3>
+                </div>
+
+                <div class="glance-stat">
+                    <span class="glance-stat-number">03</span>
+                    <h3 data-en="GCC Distributors"
+                        data-ar="موزعون في دول مجلس التعاون">
+                        GCC Distributors
+                    </h3>
+
+                    <p data-en="Kuwait · Bahrain · Oman"
+                       data-ar="الكويت · البحرين · عُمان">
+                        Kuwait · Bahrain · Oman
+                    </p>
+                </div>
+
+            </div>
+        </section>
+        <!-- END BUILDCORE AT A GLANCE SECTION -->
+
+        <!-- INDUSTRIES -->
+        <section class="industries-section" id="industries">
+
+            <div class="industries-intro">
+                <div class="industries-heading">
+                    <span class="industries-kicker"
+                          data-en="OUR EXPERTISE"
+                          data-ar="خبراتنا">
+                        OUR EXPERTISE
+                    </span>
+
+                    <h2 data-en="Industries We Serve"
+                        data-ar="القطاعات التي نخدمها">
+                        Industries We Serve
+                    </h2>
+                </div>
+
+                <p class="industries-description"
+                   data-en="From residential developments to major infrastructure projects, we provide innovative construction solutions tailored to the demands of every sector."
+                   data-ar="من المشاريع السكنية إلى مشاريع البنية التحتية الكبرى، نقدم حلولًا إنشائية مبتكرة تلبي متطلبات كل قطاع.">
+                    From residential developments to major infrastructure projects, we provide innovative construction solutions tailored to the demands of every sector.
+                </p>
+            </div>
+
+            <div class="industries-grid">
+
+                <!-- 01 Infrastructure -->
+                <article class="industry-card">
+                    <span class="industry-number"></span>
+
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M2 18h20M4 18l2-8h12l2 8"/>
+                            <path d="M6 10l6-6 6 6M8 18v-4h8v4"/>
+                            <path d="M2 21h20"/>
+                        </svg>
+                    </div>
+
+                    <h3 data-en="Infrastructure"
+                        data-ar="البنية التحتية">Infrastructure</h3>
+                </article>
+
+                <!-- 02 Commercial -->
+                <article class="industry-card">
+                    <span class="industry-number"></span>
+
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M3 21h18M5 21V4h14v17"/>
+                            <path d="M9 8h2M13 8h2M9 12h2M13 12h2"/>
+                            <path d="M9 21v-5h6v5"/>
+                        </svg>
+                    </div>
+
+                    <h3 data-en="Commercial"
+                        data-ar="المباني التجارية">Commercial</h3>
+                </article>
+
+                <!-- 03 Residential -->
+                <article class="industry-card">
+                    <span class="industry-number"></span>
+
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M3 10.5 12 3l9 7.5"/>
+                            <path d="M5 9v12h14V9"/>
+                            <path d="M9 21v-7h6v7"/>
+                        </svg>
+                    </div>
+
+                    <h3 data-en="Residential"
+                        data-ar="المباني السكنية">Residential</h3>
+                </article>
+
+                <!-- 04 Industrial -->
+                <article class="industry-card">
+                    <span class="industry-number"></span>
+
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M3 21V10l6 4V9l6 5V5h6v16H3Z"/>
+                            <path d="M7 18h2M12 18h2M17 18h2"/>
+                            <path d="M15 5V2h4v3"/>
+                        </svg>
+                    </div>
+
+                    <h3 data-en="Industrial"
+                        data-ar="القطاع الصناعي">Industrial</h3>
+                </article>
+
+                <!-- 05 Medical -->
+                <article class="industry-card">
+                    <span class="industry-number"></span>
+
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M3 21V5h18v16"/>
+                            <path d="M9 5V3h6v2"/>
+                            <path d="M12 8v8M8 12h8"/>
+                            <path d="M7 21v-2h10v2"/>
+                        </svg>
+                    </div>
+
+                    <h3 data-en="Medical"
+                        data-ar="القطاع الطبي">Medical</h3>
+                </article>
+
+                <!-- 06 Transportation -->
+                <article class="industry-card">
+                    <span class="industry-number"></span>
+
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <rect x="5" y="3" width="14" height="15" rx="3"/>
+                            <path d="M8 7h8M8 12h8M8 18v3M16 18v3"/>
+                            <path d="M5 15h14"/>
+                            <circle cx="8" cy="18" r="1"/>
+                            <circle cx="16" cy="18" r="1"/>
+                        </svg>
+                    </div>
+
+                    <h3 data-en="Transportation"
+                        data-ar="قطاع النقل">Transportation</h3>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- MEDIA -->
+        <section class="media-section" id="media">
+
+            <div class="media-heading">
+                <div>
+                    <span class="media-kicker"
+                          data-en="NEWSROOM"
+                          data-ar="المركز الإعلامي">
+                        NEWSROOM
+                    </span>
+
+                    <h2 data-en="BuildCore in Media"
+                        data-ar="بيلدكور في الإعلام">
+                        BuildCore in Media
+                    </h2>
+                </div>
+
+                <p class="media-intro"
+                   data-en="Stay informed with the latest news, press releases and announcements from BuildCore."
+                   data-ar="تابعوا أحدث الأخبار والبيانات الصحفية والإعلانات الصادرة عن بيلدكور.">
+                    Stay informed with the latest news, press releases and
+                    announcements from BuildCore.
+                </p>
+            </div>
+
+            <!-- Featured Story -->
+            <article class="media-featured">
+                <div class="media-featured-image-wrap">
+                    <img src="assets/images/factory.jpg"
+                         alt="Featured BuildCore media story"
+                         class="media-featured-image">
+
+                    <span class="media-featured-tag"
+                          data-en="FEATURED"
+                          data-ar="مميز">FEATURED</span>
+                </div>
+
+                <div class="media-featured-content">
+                    <span class="media-category"
+                          data-en="PRESS RELEASE"
+                          data-ar="بيان صحفي">PRESS RELEASE</span>
+
+                    <h3 data-en="BuildCore Construction Solutions Acquisiton of Dubai Chemicals in KSA"
+                        data-ar="استحواذ شركة بيلد كور سوليوشنز على شركة دبي للكيماويات في المملكة العربية السعودية">
+                        BuildCore Construction Solutions Acquisiton of Dubai Chemicals in KSA
+                    </h3>
+
+                    <p data-en="BuildCore Construction Solutions, a global leader in advanced chemical solutions for the construction industry has announced the definitive agreement to acquire Dubai Chemicals."
+                       data-ar="أعلنت شركة بيلد كور كونستركشن سوليوشنز (BuildCore Construction Solutions)، الرائدة عالمياً في مجال الحلول الكيميائية المتطورة لقطاع البناء والتشييد، عن توقيع اتفاقية نهائية للاستحواذ على شركة دبي للكيماويات">
+                        BuildCore Construction Solutions, a global leader in advanced chemical solutions for the construction industry has announced the definitive agreement to acquire Dubai Chemicals.
+                    </p>
+
+                    <div class="media-featured-footer">
+                        <span class="media-date"
+                              data-en="26 January 2026"
+                              data-ar="26 يناير 2026">
+                            26 January 2026
+                        </span>
+
+                        <a href="article-1.html" class="media-read-more">
+                            <span data-en="Read More"
+                                  data-ar="اقرأ المزيد">Read More</span>
+                            <span class="media-arrow" aria-hidden="true">→</span>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Smaller Media Card 1 -->
+            <article class="media-card">
+                <div class="media-card-image-wrap">
+                    <img src="assets/images/New project.jpg"
+                         alt="BuildCore news update"
+                         class="media-card-image">
+                </div>
+
+                <div class="media-card-content">
+                    <span class="media-category"
+                          data-en="NEWS"
+                          data-ar="أخبار">NEWS</span>
+
+                    <h3 data-en="BuildCore Solutions lands an historic project."
+                        data-ar="شركة بيلد كور سوليوشنز تفوز بمشروع تاريخي.">
+                        BuildCore Solutions lands an historic project.
+                    </h3>
+
+                    <p data-en="lorem">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt odit voluptas velit porro unde accusamus quaerat maiores optio, inventore explicabo laboriosam vero delectus quod voluptate, quisquam natus atque. Harum delectus voluptas commodi ipsa eligendi. Excepturi dignissimos sunt maiores itaque nostrum consectetur provident fuga eveniet repellendus cumque dolor voluptatibus culpa sapiente error, a inventore tempora, obcaecati aspernatur hic, harum assumenda! Earum laudantium, impedit amet quidem ullam praesentium consectetur harum autem, id asperiores temporibus porro et error, cumque at eum nulla officia blanditiis. Temporibus quis ipsa fugiat veniam, nostrum quas pariatur, laborum illo facilis sunt, alias aliquam facere expedita optio animi quaerat.
+                    </p>
+
+                    <span class="media-date"
+                          data-en="15 November 2025"
+                          data-ar="15 نوفمبر 2025">
+                        15 November 2025
+                    </span>
+
+                    <a href="article-2.html" class="media-read-more">
+                        <span data-en="Read More"
+                              data-ar="اقرأ المزيد">Read More</span>
+                        <span class="media-arrow" aria-hidden="true">→</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Smaller Media Card 2 -->
+            <article class="media-card">
+                <div class="media-card-image-wrap">
+                    <img src="assets/images/Contract_signing.jpg"
+                         alt="BuildCore announcement"
+                         class="media-card-image">
+                </div>
+
+                <div class="media-card-content">
+                    <span class="media-category"
+                          data-en="ANNOUNCEMENT"
+                          data-ar="إعلان">ANNOUNCEMENT</span>
+
+                    <h3 data-en="Strategic Partnership with Beijing Construction Solutions"
+                        data-ar="شراكة استراتيجية مع شركة بكين لحلول البناء">
+                        Strategic Partnership with Beijing Construction Solutions
+                    </h3>
+
+                    <p data-en="lorem">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt odit voluptas velit porro unde accusamus quaerat maiores optio, inventore explicabo laboriosam vero delectus quod voluptate, quisquam natus atque. Harum delectus voluptas commodi ipsa eligendi. Excepturi dignissimos sunt maiores itaque nostrum consectetur provident fuga eveniet repellendus cumque dolor voluptatibus culpa sapiente error, a inventore tempora, obcaecati aspernatur hic, harum assumenda! Earum laudantium, impedit amet quidem ullam praesentium consectetur harum autem, id asperiores temporibus porro et error, cumque at eum nulla officia blanditiis. Temporibus quis ipsa fugiat veniam, nostrum quas pariatur, laborum illo facilis sunt, alias aliquam facere expedita optio animi quaerat.
+                    </p>
+
+                    <span class="media-date"
+                          data-en="29 April 2023"
+                          data-ar="29 أبريل 2023">
+                        29 April 2023
+                    </span>
+
+                    <a href="article-3.html" class="media-read-more">
+                        <span data-en="Read More"
+                              data-ar="اقرأ المزيد">Read More</span>
+                        <span class="media-arrow" aria-hidden="true">→</span>
+                    </a>
+                </div>
+            </article>
 
         </section>
+
+        <!-- CLIENTS & PARTNERS -->
+        <section class="network-section" id="clients-partners">
+
+            <div class="network-heading">
+                <span class="network-kicker"
+                      data-en="OUR NETWORK"
+                      data-ar="شبكتنا">
+                    OUR NETWORK
+                </span>
+
+                <h2 data-en="Clients & Partners"
+                    data-ar="العملاء والشركاء">
+                    Clients & Partners
+                </h2>
+
+                <p data-en="Building lasting relationships through collaboration, trust and shared success."
+                   data-ar="نبني علاقات مستدامة قائمة على التعاون والثقة والنجاح المشترك.">
+                    Building lasting relationships through collaboration,
+                    trust and shared success.
+                </p>
+            </div>
+
+            <div class="network-content">
+
+                <!-- Our Clients -->
+                <div class="network-group network-clients">
+                    <h3 data-en="Our Clients"
+                        data-ar="عملاؤنا">Our Clients</h3>
+
+                    <div class="network-logos">
+                        <div class="network-logo">
+                            <img src="assets/icons/nexora.svg"
+                                 alt="Nexora fictional logo">
+                        </div>
+
+                        <div class="network-logo">
+                            <img src="assets/icons/urbanix.svg"
+                                 alt="Urbanix fictional logo">
+                        </div>
+
+                        <div class="network-logo">
+                            <img src="assets/icons/gulfcore.svg"
+                                 alt="Gulfcore fictional logo">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vertical Divider -->
+                <div class="network-divider"></div>
+
+                <!-- Our Partners -->
+                <div class="network-group network-partners">
+                    <h3 data-en="Our Partners"
+                        data-ar="شركاؤنا">Our Partners</h3>
+
+                    <div class="network-logos">
+                        <div class="network-logo">
+                            <img src="assets/icons/structiva.svg"
+                                 alt="Structiva fictional logo">
+                        </div>
+
+                        <div class="network-logo">
+                            <img src="assets/icons/partner-five.svg"
+                                 alt="Fictional partner logo five">
+                        </div>
+
+                        <div class="network-logo">
+                            <img src="assets/icons/partner-six.svg"
+                                 alt="Fictional partner logo six">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
     </main>
 
+    <!-- FOOTER -->
+    <footer class="site-footer" id="contact">
+
+        <div class="footer-main">
+
+            <!-- Brand and Social Media -->
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo">
+                    <img src="assets/icons/Logo 2.png"
+                         alt="BuildCore Construction Solutions">
+                </a>
+
+                <h3 data-en="Connect With Us"
+                    data-ar="تواصل معنا">Connect With Us</h3>
+
+                <div class="footer-socials">
+
+                    <a href="https://www.youtube.com/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="YouTube"
+                       class="social-link">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M23 7.1a3 3 0 0 0-2.1-2.2C19 4.4 12 4.4 12 4.4s-7 0-8.9.5A3 3 0 0 0 1 7.1 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.9 3 3 0 0 0 2.1 2.2c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.2 31 31 0 0 0 .5-4.9 31 31 0 0 0-.5-4.9ZM9.6 15.5v-7l6 3.5z"/>
+                        </svg>
+                    </a>
+
+                    <a href="https://www.linkedin.com/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="LinkedIn"
+                       class="social-link">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M5 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM3.5 9h3v12h-3zM9 9h2.9v1.6h.1A3.2 3.2 0 0 1 15 8.8c3.2 0 3.8 2.1 3.8 4.8V21h-3v-6.6c0-1.6 0-3.6-2.2-3.6s-2.5 1.7-2.5 3.5V21H9z"/>
+                        </svg>
+                    </a>
+
+                    <a href="https://x.com/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="X"
+                       class="social-link">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.8 5.7 22H2.5l7.3-8.4L1.8 2h6.5l4.5 6.7zm-1.1 18h1.7L7.3 3.9H5.5z"/>
+                        </svg>
+                    </a>
+
+                    <a href="https://www.instagram.com/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Instagram"
+                       class="social-link">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2Zm5 2.3a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11Zm0 2.2a3.3 3.3 0 1 0 0 6.6 3.3 3.3 0 0 0 0-6.6Zm5.7-3.1a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6Z"/>
+                        </svg>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-links">
+                <h3 data-en="Quick Links"
+                    data-ar="روابط سريعة">Quick Links</h3>
+
+                <ul>
+                    <li>
+                        <a href="overview.html"
+                           data-en="Who Are We"
+                           data-ar="من نحن">Who Are We</a>
+                    </li>
+
+                    <li>
+                        <a href="index.html#products"
+                           data-en="Products & Solutions"
+                           data-ar="المنتجات والحلول">Products & Solutions</a>
+                    </li>
+
+                    <li>
+                        <a href="projects.html"
+                           data-en="Projects"
+                           data-ar="المشاريع">Projects</a>
+                    </li>
+
+                    <li>
+                        <a href="index.html#industries"
+                           data-en="Industries"
+                           data-ar="القطاعات">Industries</a>
+                    </li>
+
+                    <li>
+                        <a href="media.html"
+                           data-en="Media"
+                           data-ar="الإعلام">Media</a>
+                    </li>
+
+                    <li>
+                        <a href="index.html#clients-partners"
+                           data-en="Clients & Partners"
+                           data-ar="العملاء والشركاء">Clients & Partners</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Contact Us -->
+            <div class="footer-contact">
+                <h3 data-en="Contact Us"
+                    data-ar="اتصل بنا">Contact Us</h3>
+
+                <ul>
+                    <li>
+                        <span class="contact-label"
+                              data-en="Phone"
+                              data-ar="الهاتف">Phone</span>
+                        <a href="tel:+966XXXXXXXXX">+966 XX XXX XXXX</a>
+                    </li>
+
+                    <li>
+                        <span class="contact-label"
+                              data-en="Email"
+                              data-ar="البريد الإلكتروني">Email</span>
+                        <a href="mailto:info@yourdomain.com">info@yourdomain.com</a>
+                    </li>
+
+                    <li>
+                        <span class="contact-label"
+                              data-en="Address"
+                              data-ar="العنوان">Address</span>
+
+                        <p>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Riyadh%2C+Saudi+Arabia"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               data-en="Riyadh, Saudi Arabia"
+                               data-ar="الرياض، المملكة العربية السعودية">
+                                Riyadh, Saudi Arabia
+                            </a>
+                        </p>
+                    </li>
+                </ul>
+
+                <a href="contact.html"
+                   class="footer-message-button"
+                   data-en="Send Us a Message"
+                   data-ar="أرسل لنا رسالة">
+                    Send Us a Message
+                    <span aria-hidden="true">→</span>
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+
+            <div class="footer-legal">
+                <a href="terms-and-conditions.html"
+                   data-en="Terms & Conditions"
+                   data-ar="الشروط والأحكام">
+                    Terms & Conditions
+                </a>
+
+                <a href="privacy-policy.html"
+                   data-en="Privacy Policy"
+                   data-ar="سياسة الخصوصية">
+                    Privacy Policy
+                </a>
+            </div>
+
+            <p class="footer-copyright">
+                © <span id="footer-year"></span>
+
+                <span data-en="BuildCore Construction Solutions. All Rights Reserved."
+                      data-ar="بيلدكور لحلول البناء. جميع الحقوق محفوظة.">
+                    BuildCore Construction Solutions. All Rights Reserved.
+                </span>
+            </p>
+
+        </div>
+    </footer>
+
+    <!-- COOKIE CONSENT BANNER -->
+    <div class="cookie-banner" id="cookie-banner">
+
+        <!-- Main Cookie Content -->
+        <div class="cookie-content">
+
+            <div class="cookie-text">
+                <h3 data-en="Your Privacy Matters"
+                    data-ar="خصوصيتك تهمنا">
+                    Your Privacy Matters
+                </h3>
+
+                <p data-en="We use essential browser storage to remember your preferences. We do not use analytics or advertising cookies."
+                   data-ar="نستخدم التخزين الأساسي في المتصفح لحفظ تفضيلاتك. لا نستخدم ملفات تعريف الارتباط للتحليلات أو الإعلانات.">
+                    We use essential browser storage to remember your preferences.
+                    We do not use analytics or advertising cookies.
+                </p>
+            </div>
+
+            <!-- Cookie Action Buttons -->
+            <div class="cookie-actions">
+
+                <button type="button"
+                        class="cookie-accept"
+                        id="cookie-accept"
+                        data-en="Accept"
+                        data-ar="موافق">
+                    Accept
+                </button>
+
+                <button type="button"
+                        class="cookie-reject"
+                        id="cookie-reject"
+                        data-en="Reject Optional"
+                        data-ar="رفض الاختيارية">
+                    Reject Optional
+                </button>
+
+                <button type="button"
+                        class="cookie-settings-btn"
+                        id="cookie-settings-btn"
+                        data-en="Settings"
+                        data-ar="الإعدادات">
+                    Settings
+                </button>
+
+            </div>
+        </div>
+
+        <!-- Cookie Settings Panel -->
+        <div class="cookie-settings-panel" id="cookie-settings-panel">
+
+            <h4 data-en="Cookie Preferences"
+                data-ar="تفضيلات ملفات تعريف الارتباط">
+                Cookie Preferences
+            </h4>
+
+            <div class="essential-cookie">
+                <span data-en="Essential storage"
+                      data-ar="التخزين الأساسي">
+                    Essential storage
+                </span>
+
+                <span data-en="Always active"
+                      data-ar="نشط دائماً">
+                    Always active
+                </span>
+            </div>
+
+            <p data-en="Only essential browser storage is used. No optional tracking cookies are installed."
+               data-ar="يتم استخدام التخزين الأساسي في المتصفح فقط. لا يتم تثبيت ملفات تعريف ارتباط اختيارية للتتبع.">
+                Only essential browser storage is used.
+                No optional tracking cookies are installed.
+            </p>
+
+            <button type="button"
+                    id="cookie-settings-close"
+                    data-en="Close"
+                    data-ar="إغلاق">
+                Close
+            </button>
+
+        </div>
+    </div>
+    <!-- END COOKIE CONSENT BANNER -->
+
     <script src="script.js"></script>
+
 </body>
 </html>

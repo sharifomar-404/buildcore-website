@@ -1,0 +1,23 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 180" role="img" aria-labelledby="title desc">
+  <title id="title">Beijing Construction Solutions</title>
+  <desc id="desc">Unofficial logo concept for a construction solutions company.</desc>
+
+  <g fill="none" stroke="#183D32" stroke-width="9" stroke-linecap="square">
+    <path d="M34 128V55h78v73M34 91h78M73 55v73"></path>
+  </g>
+
+  <path d="M34 55l39-28 39 28" fill="none" stroke="#C08B52" stroke-width="8"></path>
+
+  <text x="145" y="78" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="800" letter-spacing="1.2" fill="#183D32">
+    BEIJING
+  </text>
+
+  <text x="145" y="112" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" letter-spacing="1" fill="#183D32">
+    CONSTRUCTION SOLUTIONS
+  </text>
+
+  <text x="147" y="139" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" letter-spacing="3" fill="#718078">
+    ENGINEERING • MATERIALS • DELIVERY
+  </text>
+</svg>

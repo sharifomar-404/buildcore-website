@@ -1,0 +1,963 @@
+
+/* =========================================
+   BUILDCORE - CONCRETE ADMIXTURES
+========================================= */
+
+.category-page {
+    --bc-green: #183D32;
+    --bc-gold: #C08B52;
+    --bc-offwhite: #F7F6F1;
+    --bc-beige: #E8DDC8;
+    --bc-dark: #172B25;
+    --bc-text: #555C57;
+
+    color: var(--bc-dark);
+    background: var(--bc-offwhite);
+    font-family: inherit;
+}
+
+.category-page * {
+    box-sizing: border-box;
+}
+
+.category-container {
+    width: min(1200px, 90%);
+    margin: 0 auto;
+}
+
+.section-padding {
+    padding: 100px 0;
+}
+
+.eyebrow {
+    display: inline-block;
+    color: var(--bc-gold);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.category-page h1,
+.category-page h2,
+.category-page h3,
+.category-page p {
+    margin-top: 0;
+}
+
+.category-page h2 {
+    font-size: clamp(30px, 4vw, 46px);
+    line-height: 1.2;
+    font-weight: 600;
+    color: var(--bc-green);
+}
+
+.category-page p {
+    color: var(--bc-text);
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.category-page a {
+    text-decoration: none;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 25px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn-gold {
+    background: var(--bc-gold);
+    color: #fff;
+}
+
+.btn-gold:hover {
+    background: #a87540;
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    border-color: rgba(255,255,255,0.7);
+    color: #fff;
+}
+
+.btn-outline:hover {
+    background: #fff;
+    color: var(--bc-green);
+}
+
+.btn-dark {
+    background: var(--bc-green);
+    color: #fff;
+}
+
+.btn-dark:hover {
+    background: var(--bc-gold);
+}
+
+
+/* =========================================
+   01. HERO
+========================================= */
+
+.category-hero {
+    position: relative;
+    min-height: 620px;
+    height: 75vh;
+    max-height: 760px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--bc-green);
+}
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+    background-image: url("assets/images/concrete-admixtures-hero.jpg");
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.02);
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(12, 37, 29, 0.94) 0%,
+        rgba(12, 37, 29, 0.75) 45%,
+        rgba(12, 37, 29, 0.15) 100%
+    );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding-top: 30px;
+}
+
+.hero-content .eyebrow {
+    color: var(--bc-beige);
+}
+
+.hero-content h1 {
+    font-size: clamp(48px, 7vw, 82px);
+    line-height: 1.05;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.hero-content h1 span {
+    color: var(--bc-gold);
+}
+
+.hero-content p {
+    color: rgba(255,255,255,0.85);
+    max-width: 540px;
+    margin-bottom: 35px;
+    font-size: 16px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.hero-bottom {
+    position: absolute;
+    bottom: 25px;
+    left: 5%;
+    right: 5%;
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    font-size: 10px;
+    letter-spacing: 2px;
+    z-index: 2;
+}
+
+
+/* =========================================
+   02. INTRODUCTION
+========================================= */
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.intro-heading h2 {
+    margin-bottom: 0;
+}
+
+.intro-description p {
+    margin-bottom: 18px;
+}
+
+.text-link {
+    display: inline-block;
+    color: var(--bc-green);
+    font-weight: 700;
+    font-size: 13px;
+    margin-top: 12px;
+    transition: 0.3s;
+}
+
+.text-link span {
+    color: var(--bc-gold);
+    margin-left: 8px;
+}
+
+.text-link:hover {
+    color: var(--bc-gold);
+}
+
+
+/* =========================================
+   SECTION HEADINGS
+========================================= */
+
+.section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.section-heading h2 {
+    margin-bottom: 0;
+}
+
+.section-heading > p {
+    max-width: 390px;
+    margin-bottom: 5px;
+}
+
+
+/* =========================================
+   03. PRODUCT RANGE
+========================================= */
+
+.product-range {
+    background: #fff;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.category-product {
+    background: var(--bc-offwhite);
+    overflow: hidden;
+    transition: 0.35s ease;
+}
+
+.category-product:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+.product-image {
+    position: relative;
+    display: block;
+    height: 240px;
+    overflow: hidden;
+    background: var(--bc-beige);
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.category-product:hover .product-image img {
+    transform: scale(1.06);
+}
+
+.product-number {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--bc-gold);
+    color: #fff;
+    padding: 9px 12px;
+    font-size: 12px;
+}
+
+.product-info {
+    padding: 27px;
+}
+
+.product-type {
+    color: var(--bc-gold);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+}
+
+.product-info h3 {
+    color: var(--bc-green);
+    font-size: 21px;
+    margin: 12px 0;
+}
+
+.product-info p {
+    font-size: 13px;
+    min-height: 70px;
+}
+
+.product-link {
+    display: inline-block;
+    color: var(--bc-green);
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 12px;
+}
+
+.product-link:hover {
+    color: var(--bc-gold);
+}
+
+
+/* =========================================
+   04. APPLICATIONS
+========================================= */
+
+.applications {
+    background: var(--bc-offwhite);
+}
+
+.application-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.application-card {
+    position: relative;
+    height: 390px;
+    overflow: hidden;
+    background: var(--bc-green);
+}
+
+.application-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(9, 29, 23, 0.95),
+        rgba(9, 29, 23, 0.05) 80%
+    );
+}
+
+.application-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s ease;
+}
+
+.application-card:hover img {
+    transform: scale(1.08);
+}
+
+.application-content {
+    position: absolute;
+    z-index: 2;
+    bottom: 25px;
+    left: 22px;
+    right: 22px;
+}
+
+.application-content span {
+    color: var(--bc-gold);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.application-content h3 {
+    color: #fff;
+    font-size: 21px;
+    margin: 12px 0;
+}
+
+.application-content p {
+    color: rgba(255,255,255,0.8);
+    font-size: 12px;
+    margin-bottom: 0;
+}
+
+
+/* =========================================
+   05. TECHNICAL RESOURCES
+========================================= */
+
+.technical-resources {
+    background: var(--bc-green);
+}
+
+.resource-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 90px;
+    align-items: center;
+}
+
+.resource-intro .eyebrow {
+    color: var(--bc-gold);
+}
+
+.resource-intro h2 {
+    color: #fff;
+}
+
+.resource-intro p {
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 30px;
+}
+
+.resource-list {
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.resource-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 25px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.resource-icon {
+    min-width: 48px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255,255,255,0.1);
+    color: var(--bc-gold);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.resource-item > div:nth-child(2) {
+    flex: 1;
+}
+
+.resource-item h3 {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.resource-item p {
+    color: rgba(255,255,255,0.65);
+    font-size: 12px;
+    margin-bottom: 0;
+}
+
+.resource-item > a {
+    color: var(--bc-gold);
+    font-size: 25px;
+    padding: 8px;
+    transition: 0.3s;
+}
+
+.resource-item > a:hover {
+    color: #fff;
+    transform: translateY(3px);
+}
+
+
+/* =========================================
+   06. RELATED SOLUTIONS
+========================================= */
+
+.related-solutions {
+    background: #fff;
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.related-card {
+    position: relative;
+    height: 340px;
+    overflow: hidden;
+    background: var(--bc-green);
+}
+
+.related-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(10,30,24,0.95),
+        rgba(10,30,24,0.05)
+    );
+}
+
+.related-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s ease;
+}
+
+.related-card:hover img {
+    transform: scale(1.08);
+}
+
+.related-card > div {
+    position: absolute;
+    z-index: 2;
+    bottom: 25px;
+    left: 25px;
+    right: 20px;
+}
+
+.related-card span {
+    color: var(--bc-gold);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+.related-card h3 {
+    color: #fff;
+    font-size: 22px;
+    margin: 12px 0;
+}
+
+.related-card p {
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    margin: 0;
+}
+
+
+/* =========================================
+   07. ENQUIRY
+========================================= */
+
+.category-enquiry {
+    background: var(--bc-offwhite);
+}
+
+.enquiry-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 80px;
+    align-items: start;
+}
+
+.enquiry-content h2 {
+    margin-bottom: 25px;
+}
+
+.enquiry-points {
+    margin-top: 30px;
+}
+
+.enquiry-points p {
+    color: var(--bc-green);
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.enquiry-form {
+    background: #fff;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+}
+
+.enquiry-form h3 {
+    color: var(--bc-green);
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    color: var(--bc-green);
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 9px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #deded8;
+    background: var(--bc-offwhite);
+    color: var(--bc-dark);
+    font-family: inherit;
+    font-size: 13px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--bc-gold);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.submit-btn {
+    width: 100%;
+    font-family: inherit;
+}
+
+.form-message {
+    margin: 15px 0 0;
+    font-size: 13px;
+}
+
+.form-message.success {
+    color: var(--bc-green);
+}
+
+.form-message.error {
+    color: #b33a32;
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 1024px) {
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .application-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .resource-grid,
+    .enquiry-grid {
+        gap: 45px;
+    }
+
+    .application-card {
+        height: 350px;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .section-padding {
+        padding: 70px 0;
+    }
+
+    .category-hero {
+        height: 650px;
+        min-height: 550px;
+    }
+
+    .hero-overlay {
+        background: linear-gradient(
+            90deg,
+            rgba(12,37,29,0.92),
+            rgba(12,37,29,0.55)
+        );
+    }
+
+    .hero-content h1 {
+        font-size: 52px;
+    }
+
+    .hero-content p {
+        font-size: 14px;
+    }
+
+    .intro-grid,
+    .resource-grid,
+    .enquiry-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .section-heading {
+        display: block;
+    }
+
+    .section-heading > p {
+        margin-top: 20px;
+    }
+
+    .product-grid {
+        gap: 20px;
+    }
+
+    .product-image {
+        height: 200px;
+    }
+
+    .related-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .enquiry-form {
+        padding: 30px;
+    }
+}
+
+
+@media (max-width: 520px) {
+
+    .category-container {
+        width: 90%;
+    }
+
+    .category-hero {
+        min-height: 600px;
+        height: 80vh;
+    }
+
+    .hero-content h1 {
+        font-size: 44px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .hero-bottom {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .product-grid,
+    .application-grid,
+    .related-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-image {
+        height: 240px;
+    }
+
+    .application-card {
+        height: 350px;
+    }
+
+    .related-card {
+        height: 300px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .enquiry-form {
+        padding: 25px 20px;
+    }
+
+    .resource-item {
+        gap: 12px;
+    }
+
+    .resource-item h3 {
+        font-size: 14px;
+    }
+}
+
+
+
+/* =========================================
+   BUILDCORE - ARABIC RTL
+========================================= */
+
+.category-page[dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+    font-family: "Tajawal", "Arial", sans-serif;
+}
+
+.category-page[dir="rtl"] .hero-overlay {
+    background: linear-gradient(
+        270deg,
+        rgba(12, 37, 29, 0.94) 0%,
+        rgba(12, 37, 29, 0.75) 45%,
+        rgba(12, 37, 29, 0.15) 100%
+    );
+}
+
+.category-page[dir="rtl"] .hero-bottom {
+    direction: ltr;
+}
+
+.category-page[dir="rtl"] .product-number {
+    left: auto;
+    right: 15px;
+}
+
+.category-page[dir="rtl"] .resource-item {
+    direction: rtl;
+}
+
+.category-page[dir="rtl"] .resource-item > div:nth-child(2) {
+    text-align: right;
+}
+
+.category-page[dir="rtl"] .related-card > div {
+    left: 20px;
+    right: 25px;
+}
+
+.category-page[dir="rtl"] .text-link span {
+    margin-left: 0;
+    margin-right: 8px;
+}
+
+.category-page[dir="rtl"] .product-link {
+    direction: rtl;
+}
+
+.category-page[dir="rtl"] .hero-buttons {
+    direction: rtl;
+}
+
+.category-page[dir="rtl"] .form-group input,
+.category-page[dir="rtl"] .form-group textarea,
+.category-page[dir="rtl"] .form-group select {
+    direction: rtl;
+    text-align: right;
+}
+
+.category-page[dir="rtl"] .resource-item > a {
+    transform: scaleX(-1);
+}
+
+.category-page[dir="rtl"] .resource-item > a:hover {
+    transform: scaleX(-1) translateY(3px);
+}
+
+
+
+/* Input placeholder styling */
+.category-page input::placeholder,
+.category-page textarea::placeholder {
+    color: #999;
+    opacity: 1;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+/* Arabic placeholder alignment */
+.category-page[dir="rtl"] input,
+.category-page[dir="rtl"] textarea,
+.category-page[dir="rtl"] select {
+    text-align: right;
+    font-family: 'Tajawal', sans-serif;
+}
+
+.category-page[dir="rtl"] input::placeholder,
+.category-page[dir="rtl"] textarea::placeholder {
+    text-align: right;
+    font-family: 'Tajawal', sans-serif;
+}
+
+/* Technical Resources Hover Effect */
+.resource-item {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.resource-item:hover {
+    background-color: #E8DDC8;
+    transform: translateX(6px);
+}
+
+.resource-item span {
+    transition: all 0.3s ease;
+}
+
+.resource-item:hover span {
+    color: #C08B52;
+}
+
+/* Enquiry Points - Vertical List */
+.enquiry-points {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.enquiry-points span {
+    display: block;
+}
+
+/* Smooth Scroll Offset */
+.category-page section[id] {
+    scroll-margin-top: 100px;
+}
+
+/* Golden line below header */
+header {
+    border-bottom: 4px solid #C08B52;
+}
+
+footer {
+    border-top: 4px solid #C08B52;
+}

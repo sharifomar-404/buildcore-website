@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="160" viewBox="0 0 420 160" role="img" aria-labelledby="title desc">
+  <title id="title">Urbanix — fictional demonstration logo</title><desc id="desc">Stylized city skyline in green and gold with the word Urbanix.</desc>
+  <g transform="translate(28 25)">
+    <path d="M8 105V52H35V105M35 105V24H67V105M67 105V43H94V105" fill="none" stroke="#183D32" stroke-width="8" stroke-linejoin="round"/>
+    <path d="M48 24V8M40 16H56M80 43V30M73 36H87" stroke="#C08B52" stroke-width="6" stroke-linecap="round"/>
+    <path d="M4 105H101" stroke="#C08B52" stroke-width="7" stroke-linecap="round"/>
+  </g>
+  <text x="150" y="91" fill="#183D32" font-family="Arial,sans-serif" font-size="48" font-weight="700" letter-spacing="1">URBANIX</text>
+  <text x="153" y="119" fill="#718078" font-family="Arial,sans-serif" font-size="13" letter-spacing="3">PROPERTY DEVELOPMENT</text>
+</svg>
